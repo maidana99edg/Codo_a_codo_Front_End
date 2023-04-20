@@ -1,30 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo</title>
-    <link rel="icon" href="icon/guia-turistico.png">
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href=".\\css\\style.css">
+    <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500&family=Raleway:wght@600;700&family=Urbanist:wght@300;400&display=swap" rel="stylesheet">
+    <title>Petfriends</title>
 </head>
-
 <body>
-    <header>
-   <div class="logo">
-    <img src="img/logo.png" alt="logo de la empresa">
-    <h2 class="nombre_empresa" >Turismo S.A</h2>
-   </div>
-   <nav>
-   <a href="" class="nav_link" >DONDE IR</a>
-   <a href="" class="nav_link" >QUÉ HACER</a>
-   <a href="" class="nav_link" >INFORMACIÓN</a>
-   <a href="" class="nav_link" >CONTACTO</a>
-   </nav>
-    </header>
+    <!-- HEADER SECTION -->
+    <div class="container">
+        <header class="grid-head">
+            <figure class="logo-header">
+                <a class="lnk-logo" href="#"><img class="logo-mascotas" src="img\\logo_completo.png" alt="logo"></i></a>
+                <!-- <i class="fa-solid fa-paw fa-2xl logo-mascotas"> -->
+            </figure>
+            <nav class="nav">
+                <ul class="nav-bar">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">¿Quienes Somos?</a></li>
+                    <li><a href="#">Buscador</a></li>
+                    <li><a href="#">Adoptar</a></li>
+                </ul>
+                <div class="header-buttons">
+                    <a href="#" class="btn">Ingreso</a>
+                    <a href="#" class="btn">Regístrate</a>
+                </div>
+            </nav>
+        </header>
+        <!-- MAIN SECTION -->
+        <section id="main" class="grid-content">
+            <main>
+                <h1>
+                    !Comienza la búsqueda de tu nuevo mejor amigo en tiempo record!
+                </h1>
+                <p>Adoptar una mascota en una de las mejores desiciones que puedes tomar</p>
+                <form action="#" method="post">
+                    <input type="search" name="buscador" placeholder="mascota">
+                    <input type="submit" value="Buscar">
+                </form>
+            </main>
+            <figure>
+                <img src="img\\mascota1.png" alt="mascota perro negro">
+            </figure>
+        </section>
+        <!-- FOOTER SECTION -->
+        <footer class="pie grid-footer">
+            <section class="pie-superior">
+                <div class="logo">
+                    <a class="logo-pie" href="#">
+                        <img class="logo-pata" src="img\\logo_patita.png" alt="">
+                        <!-- <i class="fa-solid fa-paw fa-3x logo-pata"></i> -->
+                        <p class="item-txt-logo">Petfriends</p>
+                    </a>
+                </div>
+                <div class="redes">
+                    <p class="item-txt-rrss">Síguenos en:</p>
+                    <div class="rrss-icn">
+                        <a href="#" class="fa-brands fa-facebook"></a>
+                        <a href="#" class="fa-brands fa-instagram"></a>
+                        <a href="#" class="fa-brands fa-linkedin"></a>
+                        <a href="#" class="fa-brands fa-youtube"></a>
+                        <a href="#" class="fa-brands fa-github"></a>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="copyright">
+                <p class="item-txt">@Copyright. Derechos Resevados 2023.</p>
+                <p class="item-txt">Codo a Codo - Comisión 23008</p>
+            </section>
+        </footer>
+    </div>
 </body>
-
-
 </html>

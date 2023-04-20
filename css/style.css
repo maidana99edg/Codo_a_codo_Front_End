@@ -1,42 +1,204 @@
-body{
-    font-family: sans-serif;
+/* Definicion de grilla de objetos dentro del contenedor principal*/
+.container {
+    display: grid;
+    grid-template: auto 1fr auto / 10% auto 10%;
+    grid-template-areas: "encabezado encabezado encabezado"
+                         "contenido contenido contenido"
+                         "pie pie pie";
+    min-height: 100vh;
+}
+
+/* Definicion de la grilla*/
+.grid-head { grid-area: encabezado;}
+.grid-content { grid-area: contenido;}
+.grid-footer { grid-area: pie;}
+
+/* Estilos Visuales generales*/
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-a{
-    text-decoration: none;
-    color:azure;
+
+body{
+    font-family: 'Baloo Thambi 2', cursive;
 }
-header{
+
+/*--------------------*/
+/* Estilos del Header*/
+/*--------------------*/
+
+header {
+    background-color: #ff5001;
     display: flex;
-    min-height: 50px;
-    background: #2fcdcd;
     justify-content: space-between;
     align-items: center;
-    padding: 4%;
 }
-.logo{
+
+.logo-header {
+    padding: 0px 15px;
+}
+
+.lnk-logo{
     display: flex;
     align-items: center;
 }
-.logo img{
-    height: 60px;
-    margin-right: 10px;
-}
-nav a{
-    font-weight: 600;
-    padding-right: 10px;
+
+.logo-mascotas {
+    width: 150px;
 }
 
-nav a:hover{
-    color: rgb(12, 0, 0);
-}
-@media (max-width:700px){
-    header{
-        flex-direction: column;
-    }
-
-    nav{
-        padding: 10px 0px;
-    }
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
+.nav-bar {
+    display: flex;
+    gap: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav-bar li a {
+    background-color: #ff5001;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 8px;
+    display: block;
+}
+
+.nav-bar li a:hover{
+    /*background-color: #ff8037;*/
+    color: #ffad02;
+}
+
+.nav-bar > li {
+    float: left;
+}
+
+.header-buttons {
+    display: flex;
+    /*margin-left: auto;*/
+    padding: 15px 80px 15px 15px;
+    gap: 10px
+}
+
+.btn {
+    border: 2px solid #0174ae;
+    background-color: #00aaff;
+    color: white;
+    font-weight: bold;
+    font-size: .9em;
+    padding: 5px;
+    border-radius: 50px;
+    width: 90px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/*--------------------------------*/
+/* Estilos del Contenido de pagina*/
+/*--------------------------------*/
+
+#main {
+    background-color: #ffad02;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+}
+
+/*--------------------*/
+/* Estilos del Footer*/
+/*--------------------*/
+.pie{
+    background-color: #ff5001;
+}
+
+.item-txt {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.item-txt-logo {
+    color: #ffad02;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.item-txt-rrss {
+    color: #ffad02;
+    font-weight: bold;
+    font-size: .9em;
+}
+
+.pie-superior{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-pie{
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo-pata {
+    /*color: #ffac02;*/
+    width: 50px;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rrss-icn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.rrss-icn a {
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 21px;
+    background-color: white;
+    color: #ff5001;
+    border-radius: 50%;
+    transition: all .4s ease-in-out;
+}
+
+.rrss-icn a:hover {
+    transform: scale(1.2);
+    color: #0174ae;
+}
+
+.copyright{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8037;
+    padding: 10px 60px;
+    font-size: 0.8em;
+}
