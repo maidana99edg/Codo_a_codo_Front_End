@@ -21,7 +21,7 @@
 }
 
 body{
-    font-family: 'Baloo Thambi 2', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 
 /*--------------------*/
@@ -108,8 +108,11 @@ ul {
 
 #main {
     background-color: #ffad02;
-    font-family: 'Raleway', sans-serif;
     color: #fff;
+}
+
+h1{
+    font-family: 'Baloo Thambi';font-size: 28px;
 }
 
 /*--------------------*/
@@ -122,19 +125,20 @@ ul {
 .item-txt {
     color: white;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 0.8rem;
 }
 
 .item-txt-logo {
     color: #ffad02;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2rem;
+    font-family: 'Baloo Thambi';
 }
 
 .item-txt-rrss {
     color: #ffad02;
     font-weight: bold;
-    font-size: .9em;
+    font-size: .9rem;
 }
 
 .pie-superior{
