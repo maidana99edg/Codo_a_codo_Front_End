@@ -1,9 +1,9 @@
 /* Definicion de grilla de objetos dentro del contenedor principal*/
 .container {
     display: grid;
-    grid-template: auto 1fr auto / 10% auto 10%;
+    grid-template: auto 1fr auto / 2% auto 2%;
     grid-template-areas: "encabezado encabezado encabezado"
-                         "contenido contenido contenido"
+                         "contenido-l contenido contenido-r"
                          "pie pie pie";
     min-height: 100vh;
 }
@@ -11,6 +11,8 @@
 /* Definicion de la grilla*/
 .grid-head { grid-area: encabezado;}
 .grid-content { grid-area: contenido;}
+.grid-content-r { grid-area: contenido-r;}
+.grid-content-l { grid-area: contenido-l;}
 .grid-footer { grid-area: pie;}
 
 /* Estilos Visuales generales*/
@@ -132,13 +134,28 @@ ul {
 /* Estilos del Contenido de pagina*/
 /*--------------------------------*/
 
-#main {
+.main {
     background-color: #ffad02;
     color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.central-txt {
+    width: 50%;
 }
 
 h1{
-    font-family: 'Baloo Thambi';font-size: 28px;
+    font-family: 'Baloo Thambi';
+}
+
+.main-txt{
+    font-size: 3rem;
+}
+
+.sec-txt{
+    font-size: 28px;
+    font-weight: bold;
 }
 
 /*--------------------*/
