@@ -19,7 +19,7 @@ body{
 /*----------------------------------------------------------------*/
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
@@ -30,12 +30,12 @@ body{
 }
 
 .container > .main-content {
-    grid-column: span 1;
+    grid-column: span 2;
     grid-row: span 3;
 }
 
 .container > .sec-content {
-    grid-column: span 1;
+    grid-column: span 2;
     grid-row: span 3;
 }
 
