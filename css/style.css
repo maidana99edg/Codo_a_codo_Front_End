@@ -1,21 +1,6 @@
-/* Definicion de grilla de objetos dentro del contenedor principal*/
-.container {
-    display: grid;
-    grid-template: auto 1fr auto / 2% auto 2%;
-    grid-template-areas: "encabezado encabezado encabezado"
-                         "contenido-l contenido contenido-r"
-                         "pie pie pie";
-    min-height: 100vh;
-}
-
-/* Definicion de la grilla*/
-.grid-head { grid-area: encabezado;}
-.grid-content { grid-area: contenido;}
-.grid-content-r { grid-area: contenido-r;}
-.grid-content-l { grid-area: contenido-l;}
-.grid-footer { grid-area: pie;}
-
+/*---------------------------*/
 /* Estilos Visuales generales*/
+/*---------------------------*/
 * {
     margin: 0;
     padding: 0;
@@ -24,17 +9,45 @@
 
 body{
     font-family: 'Raleway', sans-serif;
+    color: #fff;
+    background-color:#ffad02;
+    background-image: url("");
+}
+
+/*----------------------------------------------------------------*/
+/* Definición de grilla de objetos dentro del contenedor principal*/
+/*----------------------------------------------------------------*/
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.container > .grid-head, .grid-footer {
+    grid-column: 1/-1;
+    background-color: #ff5001;
+}
+
+.container > .main-content {
+    grid-column: span 1;
+    grid-row: span 3;
+}
+
+.container > .sec-content {
+    grid-column: span 1;
+    grid-row: span 3;
 }
 
 /*--------------------*/
 /* Estilos del Header*/
 /*--------------------*/
 
-header {
-    background-color: #ff5001;
+#header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
 }
 
 .logo-header {
@@ -47,19 +60,19 @@ header {
 }
 
 .logo-mascotas {
-    width: 150px;
+    width: 160px;
 }
 
 .nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
 }
 
 .nav-bar {
     display: flex;
-    gap: 15px;
+    gap: 2px;
 }
 
 ul {
@@ -75,7 +88,7 @@ ul {
     display: block;
     position: relative;
     transition: .5s;
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 .nav-bar li a::after{
@@ -108,7 +121,7 @@ ul {
 .header-buttons {
     display: flex;
     /*margin-left: auto;*/
-    padding: 15px 80px 15px 15px;
+    padding: 15px 50px 15px 15px;
     gap: 10px
 }
 
@@ -123,6 +136,7 @@ ul {
     width: 90px;
     text-decoration: none;
     text-align: center;
+    transition: all 0.5s ease;
 }
 
 .btn:hover{
@@ -134,35 +148,58 @@ ul {
 /* Estilos del Contenido de pagina*/
 /*--------------------------------*/
 
-.main {
-    background-color: #ffad02;
-    color: #fff;
-    display: flex;
-    align-items: center;
-}
-
-.central-txt {
-    width: 600px;
+#onda{
+    z-index: 0;
 }
 
 h1{
     font-family: 'Baloo Thambi';
 }
 
+.info-ppal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+}
+
+.art-ppal{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-right: 0;
+    width: 90%;
+}
+
 .main-txt{
-    font-size: 3rem;
+    font-size: 2.5em;
 }
 
 .sec-txt{
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
+    width: 75%;
+}
+
+.img-ppal{
+    display: flex;
+    justify-content:left;
+    align-items:end;
+}
+
+.img-dog{
+    width: 120%;
 }
 
 /*--------------------*/
 /* Estilos del Footer*/
 /*--------------------*/
-.pie{
-    background-color: #ff5001;
+
+.pie-superior{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
 }
 
 .item-txt {
@@ -174,7 +211,7 @@ h1{
 .item-txt-logo {
     color: #ffad02;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.5em;
     font-family: 'Baloo Thambi';
 }
 
@@ -182,14 +219,6 @@ h1{
     color: #ffad02;
     font-weight: bold;
     font-size: .9rem;
-}
-
-.pie-superior{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 30px;
-    align-items: center;
-
 }
 
 .logo {
@@ -221,6 +250,7 @@ h1{
     justify-content: center;
     align-items: center;
     gap: 5px;
+    padding-top: 5px;
 }
 
 .rrss-icn a {
