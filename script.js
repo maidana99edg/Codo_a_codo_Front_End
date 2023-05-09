@@ -1,10 +1,9 @@
 let hamburger = document.querySelector('.hamburger');
-let navLinks = document.getElementById('nav-links');
+let navLinks = document.querySelector('#nav-links');
 let links = document.querySelectorAll('.links');
 
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('hide');
-  hamburger.classList.toggle('lines-rotate');
 });
 
 for (let i = 0; i < links.length; i++) {
@@ -12,3 +11,9 @@ for (let i = 0; i < links.length; i++) {
     navLinks.classList.toggle('hide');
   });
 }
+
+const navMenu = document.querySelector("#navMenu");
+
+navMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+})

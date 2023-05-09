@@ -7,14 +7,14 @@
     box-sizing: border-box;
 }
 
-body{
+body {
+    /*background-image: linear-gradient(to bottom, #FF5001, #FFAD02);*/
     background-image: url("../img/Onda.svg"), url("../img/Pattern.svg");
     background-repeat: no-repeat, repeat;
     background-size: 1540px, cover;
     font-family: 'Raleway', sans-serif;
     background-color: #ff8037;
     color: #fff;
-    /* background-image: linear-gradient(to bottom, #FF5001, #FFAD02); */
 }
 
 /*----------------------------------------------------------------*/
@@ -27,7 +27,7 @@ body{
     min-height: 100vh;
     grid-template-areas: 
         "nav nav nav nav"
-        "main main content1 content1"
+        "contact contact form  form"
         "footer footer footer footer"
 }
 
@@ -41,12 +41,12 @@ body{
     background-color: #ff5001;
 }
 
-.container > .main-content {
-    grid-area: main;
+.container > .contact-info {
+    grid-area: contact;
 }
 
-.container > .sec-content {
-    grid-area: content1;
+.container > .contact-form {
+    grid-area: form;
 }
 
 /*--------------------*/
@@ -128,6 +128,7 @@ nav ul {
     text-decoration: none;
     text-align: center;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .btn:hover{
@@ -143,90 +144,65 @@ nav ul {
 /* Estilos del Contenido de página*/
 /*--------------------------------*/
 
-h1{
-    font-family: 'Baloo Thambi';
+h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+
 }
 
-.info-ppal{
+.contact-info{
     display: flex;
-    align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 10px 10px 120px;
 }
 
-.art-ppal{
+iframe{
+    max-width: 90%;
+}
+
+.contact-form{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-right: 0;
-    width: 70%;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
 }
 
-.main-txt{
-    font-size: 2.5em;
-}
-
-.sec-txt{
-    font-size: 25px;
-    font-weight: bold;
-    width: 70%;
-}
-
-.main-buttons{
+.formulario{
     display: flex;
-    padding: 15px 0;
-    gap: 15px
+    flex-direction: column;
+    gap: 10px;
 }
 
-.buscar-btn{
-    border: 2px solid #00aaff;
-    background-color: #00aaff;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: .9em;
-    padding: 5px;
+.form-label{
+    font-size: .8em;
+}
+
+.form-input{
+    width: 60%;
+    height: 30px;
     border-radius: 50px;
-    width: 200px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.5s ease;
 }
 
-.donar-btn{
-    border: 2px solid #FF5001;
-    background-color: #FF5001;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: .9em;
-    padding: 5px;
-    border-radius: 50px;
-    width: 200px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.5s ease;
+.form-textarea{
+    width: 90%;
+    border-radius: 10px;
+    resize: vertical;
 }
 
-.buscar-btn:hover{
-    background-color: #fff;
-    color: #00aaff;
-    border: 2px solid #00aaff;
+.form-input, .form-textarea {
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+    color: grey;
 }
 
-.donar-btn:hover{
-    background-color: #fff;
-    color: #FF5001;
-}
-
-.img-ppal{
-    display: flex;
-    justify-content:left;
-    align-items:end;
-    line-height: 1%;
-}
-
-.img-dog{
-    width: 52vh;
-    height: auto;
-    padding-left: 15px;
+.form-button{
+    padding-top: 10px;
 }
 
 /*--------------------*/
@@ -331,17 +307,12 @@ h1{
     }
 
     /* Contenido Central*/
-    .main-txt{
-        font-size: 2.2em;
+    .contact-info{
+        padding: 10px 10px 10px 40px;
     }
-
-    .sec-txt{
-        font-size: 20px;
-    }
-
-    .img-dog{
-        width: 51vh;
-        height: auto;
+    
+    .contact-form{
+        padding: 40px;
     }
 
     /* Footer */
@@ -352,6 +323,18 @@ h1{
 
 /* Segundo corte de pantalla a resolución max 1200px */
 @media only screen and (max-width: 1200px){
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 0.2fr auto auto 0.2fr;
+        min-height: 100vh;
+        grid-template-areas: 
+            "nav nav nav nav"
+            "contact contact contact  contact"
+            "form  form form  form"
+            "footer footer footer footer"
+    }
+    
     /* Header */
     .logo-mascotas {
         width: 140px;
@@ -363,18 +346,12 @@ h1{
     }
 
     /* Contenido Central*/
-    .main-txt{
-        font-size: 2em;
+    .form-input{
+        width: 50%;
     }
-
-    .sec-txt{
-        font-size: 18px;
-        width: 80%;
-    }
-
-    .img-dog{
-        width: 50vh;
-        height: auto;
+    
+    .form-textarea{
+        width: 75%;
     }
 
     /* Footer */
@@ -465,7 +442,7 @@ h1{
     .nav-bar li a::after{
         background-color: #ff8037;
     }
-
+    
     .nav-bar li a:hover{
         color: #fff;
         border: none;
@@ -474,19 +451,12 @@ h1{
     }
 
     /* Contenido Central*/
-    .main-txt{
-        font-size: 1.8em;
+    .form-textarea{
+        width: 90%;
     }
 
-    .sec-txt{
-        font-size: 16px;
-        width: 80%;
-    }
-
-    .img-dog{
-        width: 47vh;
-        height: auto;
-        padding: 0;
+    .form-input{
+        width: 65%;
     }
 }
 
@@ -498,46 +468,28 @@ h1{
         min-height: 100vh;
         grid-template-areas: 
             "nav"
-            "main"
-            "content1"
+            "contact"
+            "form"
             "footer"
     }
     
     /* Contenido Central*/
-    .main-txt{
-        font-size: 1.8em;
-        text-align: center;
+    .contact-info, .contact-form{
+        padding: 10px;
+        gap: 10px;
     }
 
-    .sec-txt{
-        font-size: 14px;
-        width: 100%;
-        text-align: center;
+    h3{
+        font-size: 1.1em;
     }
 
-    .art-ppal{
-        justify-content:center;
+    p {
+        font-size: 0.9em;
     }
 
-    .main-buttons{
-        justify-content:center;
-    }
-
-    .buscar-btn{
-        width: 160px;
-    }
-    
-    .donar-btn{
-        width: 160px;
-    }
-
-    .img-ppal{
-        justify-content:center;
-    }
-
-    .img-dog{
-        width: 35vh;
-        height: auto;
+    iframe{
+        max-width: 100%;
+        /* max-height: 50%; */
     }
 }
 
@@ -548,8 +500,8 @@ h1{
         grid-template-columns: 100%;
         grid-template-areas: 
             "nav"
-            "main"
-            "content1"
+            "contact"
+            "form"
             "footer"
     }
 
@@ -561,30 +513,17 @@ h1{
     }
 
     /* Contenido Central*/
-    .main-txt{
-        font-size: 1.6em;
-    }
-
-    .sec-txt{
-        font-size: 14px;
-    }
-
-    .buscar-btn{
-        font-size: .8em;
-        padding: 4px;
-        width: 120px;
+    .contact-info, .contact-form{
+        justify-content: flex-start;
     }
     
-    .donar-btn{
-        font-size: .8em;
-        padding: 4px;
-        width: 120px;
+    iframe{
+        /* max-width: 100%; */
+        max-height: 70%;
     }
 
-    .img-dog{
-        width: 30vh;
-        height: auto;
-        padding: 0;
+    .form-input, .form-textarea{
+        width: 100%;
     }
 
     .hide {
