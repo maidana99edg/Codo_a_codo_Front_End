@@ -321,6 +321,15 @@ h1{
 /* Diseño responsive */
 /* Primer corte de pantalla a resolución max 1400px */
 @media only screen and (max-width: 1400px){
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "nav nav nav"
+            "main main content1"
+            "footer footer footer"
+    }
+    
     /* Header */
     nav li a {
         font-size: 13px;
@@ -340,8 +349,9 @@ h1{
     }
 
     .img-dog{
-        width: 51vh;
+        width: 50vh;
         height: auto;
+        padding-right: 15px;
     }
 
     /* Footer */
@@ -373,7 +383,7 @@ h1{
     }
 
     .img-dog{
-        width: 50vh;
+        width: 49vh;
         height: auto;
     }
 
@@ -484,13 +494,12 @@ h1{
     }
 
     .img-dog{
-        width: 47vh;
+        width: 45vh;
         height: auto;
-        padding: 0;
     }
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 960px){
     /* Grilla */
     .container {
         grid-template-columns: 1fr;
@@ -532,12 +541,23 @@ h1{
     }
 
     .img-ppal{
+        display: flex;
         justify-content:center;
     }
 
     .img-dog{
+        width: 40vh;
+        height: auto;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 768px){
+
+    .img-dog{
         width: 35vh;
         height: auto;
+        padding: 0;
     }
 }
 
@@ -581,9 +601,13 @@ h1{
         width: 120px;
     }
 
+    figure{
+        display: flex;
+        justify-content: center;
+    }
     .img-dog{
-        width: 30vh;
-        height: auto;
+        max-width: 90%;
+        height: 90%;
         padding: 0;
     }
 
