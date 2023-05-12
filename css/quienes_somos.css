@@ -1,0 +1,602 @@
+/*---------------------------*/
+/* Estilos Visuales generales*/
+/*---------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    /* background-color:#ff8037; */
+    background-image: linear-gradient(to bottom, #FF5001, #FFAD02);
+}
+
+/*----------------------------------------------------------------*/
+/* Definición de grilla de objetos dentro del contenedor principal*/
+/*----------------------------------------------------------------*/
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    grid-template-areas: 
+        "nav nav nav nav"
+        "main main content1 content1"
+        "footer footer footer footer"
+}
+
+.container > .grid-head {
+    grid-area: nav;
+    background-color: #ff5001;
+}
+
+.container > .grid-footer {
+    grid-area: footer;
+    background-color: #ff5001;
+}
+
+.container > .main-content {
+    grid-area: main;
+}
+
+.container > .sec-content {
+    grid-area: content1;
+}
+
+/*--------------------*/
+/* Estilos del Header*/
+/*--------------------*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.logo-mascotas {
+    width: 180px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-bar li a {
+    /* background-color: #ff5001; */
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 8px;
+    display: block;
+    position: relative;
+    transition: .5s;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav-bar li a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 100%;
+    left: 0;
+    background-color: #ffad02;
+    transition: transform 0.5s ease-out;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.nav-bar li a:hover{
+    /*background-color: #ff8037;*/
+    color: #ffad02;
+}
+
+.nav-bar li a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-bar > li {
+    float: left;
+}
+
+.header-buttons {
+    display: flex;
+    padding-right: 30px;
+    gap: 10px
+}
+
+.btn {
+    border: 2px solid #0174ae;
+    background-color: #00aaff;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: .8em;
+    padding: 5px;
+    border-radius: 50px;
+    width: 90px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #00aaff;
+}
+
+.hide {
+    top: 70px;
+}
+/*--------------------------------*/
+/* Estilos del Contenido de página*/
+/*--------------------------------*/
+
+h1{
+    font-family: 'Baloo Thambi';
+}
+
+.info-ppal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.art-ppal{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-right: 0;
+    width: 70%;
+}
+
+.main-txt{
+    font-size: 2.4em;
+}
+
+.sec-txt{
+    font-size: 25px;
+    font-weight: bold;
+    width: 90%;
+}
+
+.buscar-btn{
+    border: 2px solid #00aaff;
+    background-color: #00aaff;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: .9em;
+    padding: 5px;
+    border-radius: 50px;
+    width: 200px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.donar-btn{
+    border: 2px solid #FF5001;
+    background-color: #FF5001;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: .9em;
+    padding: 5px;
+    border-radius: 50px;
+    width: 200px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.buscar-btn:hover{
+    background-color: #fff;
+    color: #00aaff;
+    border: 2px solid #00aaff;
+}
+
+.donar-btn:hover{
+    background-color: #fff;
+    color: #FF5001;
+}
+
+.img-ppal{
+    display: flex;
+    justify-content:left;
+    align-items:end;
+    line-height: 1%;
+}
+
+.img-dog{
+    width: 62.4vh;
+    height: auto;
+    padding-left: 20px;
+}
+
+/*--------------------*/
+/* Estilos del Footer*/
+/*--------------------*/
+
+.pie-superior{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+.item-txt {
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.item-txt-logo {
+    color: #ffad02;
+    font-weight: bold;
+    font-size: 2.2em;
+    font-family: 'Baloo Thambi';
+}
+
+.item-txt-rrss {
+    color: #ffad02;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-pie{
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo-pata {
+    /*color: #ffac02;*/
+    width: 50px;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rrss-icn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.rrss-icn a {
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 21px;
+    background-color: white;
+    color: #ff5001;
+    border-radius: 50%;
+    transition: all .4s ease-in-out;
+}
+
+.rrss-icn a:hover {
+    transform: scale(1.2);
+    color: #0174ae;
+}
+
+.copyright{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8037;
+    padding: 10px 60px;
+    font-size: 0.8em;
+}
+
+/* Diseño responsive */
+/* Primer corte de pantalla a resolución max 1400px */
+@media only screen and (max-width: 1400px){
+    /* Header */
+    nav li a {
+        font-size: 13px;
+    }
+    
+    .btn {
+        font-size: .8em;
+    }
+
+    /* Contenido Central*/
+    .main-txt{
+        font-size: 2.2em;
+    }
+
+    .sec-txt{
+        font-size: 20px;
+    }
+
+    .img-dog{
+        width: 51vh;
+        height: auto;
+    }
+
+    /* Footer */
+    .item-txt-logo {
+        font-size: 2.1em;
+    }
+}
+
+/* Segundo corte de pantalla a resolución max 1200px */
+@media only screen and (max-width: 1200px){
+    /* Header */
+    .logo-mascotas {
+        width: 140px;
+    }
+    
+    .nav-bar li a {
+        font-size: 12px;
+        padding: 3px 5px;
+    }
+
+    /* Contenido Central*/
+    .main-txt{
+        font-size: 2em;
+    }
+
+    .sec-txt{
+        font-size: 18px;
+        width: 80%;
+    }
+
+    .img-dog{
+        width: 50vh;
+        height: auto;
+    }
+
+    /* Footer */
+    .item-txt-logo {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    /* Header */
+    nav .hamburger{
+        order:1;
+    }
+
+    nav .logo-header {
+        order:2;
+    }
+
+    nav .header-buttons{
+        order:3;
+    }
+    /* HAMBURGER */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        padding: 10px;
+        /* margin-right: -10px; */
+    }
+
+    .lines {
+        display: block;
+        background-color: white;
+        height: 3px;
+        width: 30px;
+    }
+
+    .lines-rotate {
+        background-color: #ff8037;
+        border-radius: 5px;
+    }
+
+    nav {
+        position: relative;
+        padding: 15px 20px;
+    }
+
+    ul {
+        width: 100%;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        position: absolute;
+        top: -300px;
+        right: 0;
+        background-color: #ffad02;
+        padding: 35px 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    li {
+        width: 90vw;
+    }
+
+    .nav-bar li a {
+        font-size: 16px;
+    }
+
+    .nav-bar li a:hover{
+        color: #fff;
+        border: none;
+        letter-spacing: 1px;
+    }
+
+    /* Contenido Central*/
+    .main-txt{
+        font-size: 1.8em;
+    }
+
+    .sec-txt{
+        font-size: 16px;
+        width: 80%;
+    }
+
+    .img-dog{
+        width: 47vh;
+        height: auto;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    /* Grilla */
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr auto auto 0.2fr;
+        min-height: 100vh;
+        grid-template-areas: 
+            "nav"
+            "main"
+            "content1"
+            "footer"
+    }
+    
+    /* Contenido Central*/
+    .main-txt{
+        font-size: 1.6em;
+        text-align: center;
+    }
+
+    .sec-txt{
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .art-ppal{
+        justify-content:center;
+    }
+
+    .main-buttons{
+        justify-content:center;
+    }
+
+    .buscar-btn{
+        width: 160px;
+    }
+    
+    .donar-btn{
+        width: 160px;
+    }
+
+    .img-ppal{
+        justify-content:center;
+    }
+
+    .img-dog{
+        width: 35vh;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    /* Grilla */
+    .container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "nav"
+            "main"
+            "content1"
+            "footer"
+    }
+
+    /* header */
+    .btn {
+        font-size: .7em;
+        padding: 4px;
+        width: 75px;
+    }
+
+    /* Contenido Central*/
+    .main-txt{
+        font-size: 1.6em;
+    }
+
+    .sec-txt{
+        font-size: 14px;
+    }
+
+    .buscar-btn{
+        font-size: .8em;
+        padding: 4px;
+        width: 120px;
+    }
+    
+    .donar-btn{
+        font-size: .8em;
+        padding: 4px;
+        width: 120px;
+    }
+
+    .img-dog{
+        width: 30vh;
+        height: auto;
+        padding: 0;
+    }
+
+    /* footer*/
+    .logo-mascotas {
+        display: none;
+    }
+
+    .pie-superior{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        padding: 5px 0;
+    }
+
+    .logo-pata{
+        width: 8vw;
+    }
+
+    .item-txt-logo {
+        font-size: 1.8em;
+    }
+
+    .item-txt-rrss {
+        display: none;
+    }
+
+    .rrss-icn a {
+        text-decoration: none;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .copyright{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        padding: 5px 0;
+    }
+
+    .item-txt {
+        font-size: 0.7em;
+    }
+}
