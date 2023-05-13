@@ -161,6 +161,8 @@ h3{
 
 iframe{
     max-width: 90%;
+    box-shadow: 0 0 10px #ff5001;
+    border-radius: 5px;
 }
 
 .contact-form{
@@ -168,17 +170,21 @@ iframe{
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding: 50px;
-}
-
-.formulario{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding: 50px 50px 50px 0;
 }
 
 .form-label{
+    display: block;
+    font-weight: 700;
+    padding: 10px;
     font-size: .8em;
+}
+.form-input, .form-textarea {
+    border: 2px solid transparent;
+    font-family: 'Raleway', sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+    color: grey;
 }
 
 .form-input{
@@ -187,22 +193,38 @@ iframe{
     border-radius: 50px;
 }
 
+.form-input:focus, .form-textarea:focus{
+    border: 2px solid #00aaff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgb(1, 116, 174, 0.2);
+}
+
 .form-textarea{
     width: 90%;
     border-radius: 10px;
     resize: vertical;
 }
 
-.form-input, .form-textarea {
-    border: none;
-    font-family: 'Raleway', sans-serif;
-    padding: 10px;
-    box-sizing: border-box;
-    color: grey;
-}
-
 .form-button{
     padding-top: 10px;
+}
+
+.btn:focus{
+    outline: none;
+    box-shadow: 3px 0px 30px #fff;
+}
+
+.error-message {
+    display: block;
+    padding: 5px 10px;
+    padding: 10px 0 0 10px;
+    font-size: 12px;
+    color: #0174ae;
+}
+
+.invalid {
+    border: solid 2px #ff5001;
+    box-shadow: 3px 0px 30px #ff5001;
 }
 
 /*--------------------*/
@@ -308,11 +330,11 @@ iframe{
 
     /* Contenido Central*/
     .contact-info{
-        padding: 10px 10px 10px 40px;
+        padding: 10px 10px 10px 80px;
     }
     
     .contact-form{
-        padding: 40px;
+        padding: 40px 40px 40px 0;
     }
 
     /* Footer */
@@ -323,16 +345,17 @@ iframe{
 
 /* Segundo corte de pantalla a resolución max 1200px */
 @media only screen and (max-width: 1200px){
+    
     .container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 0.2fr auto auto 0.2fr;
-        min-height: 100vh;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr auto;
         grid-template-areas: 
-            "nav nav nav nav"
-            "contact contact contact  contact"
-            "form  form form  form"
-            "footer footer footer footer"
+            "nav nav nav"
+            "contact contact contact"
+            "form  form form"
+            "footer footer footer"
+
     }
     
     /* Header */
@@ -346,12 +369,16 @@ iframe{
     }
 
     /* Contenido Central*/
+    .contact-info, .contact-form{
+        padding: 10px 10px 10px 300px;
+    }
+    
     .form-input{
         width: 50%;
     }
     
     .form-textarea{
-        width: 75%;
+        width: 70%;
     }
 
     /* Footer */
@@ -429,6 +456,7 @@ iframe{
         opacity: 0.9;
         padding: 35px 0;
         border-radius: 0 0 10px 10px;
+        transition: 0.4s;
     }
 
     li {
@@ -451,6 +479,10 @@ iframe{
     }
 
     /* Contenido Central*/
+    .contact-info, .contact-form{
+        padding: 10px 10px 10px 150px;
+    }
+    
     .form-textarea{
         width: 90%;
     }
@@ -464,7 +496,7 @@ iframe{
     /* Grilla */
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr auto auto 0.2fr;
+        grid-template-rows: 0.5fr auto auto 0.5fr;
         min-height: 100vh;
         grid-template-areas: 
             "nav"
@@ -475,7 +507,7 @@ iframe{
     
     /* Contenido Central*/
     .contact-info, .contact-form{
-        padding: 10px;
+        padding: 40px;
         gap: 10px;
     }
 
@@ -498,6 +530,7 @@ iframe{
     .container {
         display: grid;
         grid-template-columns: 100%;
+        grid-template-rows: 0.45fr auto auto 0.2fr;
         grid-template-areas: 
             "nav"
             "contact"

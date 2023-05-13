@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/quienes_somos.css">
     <link href='https://fonts.googleapis.com/css?family=Baloo Thambi' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="icon" href="img\\logo-pata-amarillo.png">
+    <link rel="icon" href="img/logo-pata-amarillo.png">
     <title>Petfriends</title>
 </head>
-
 <body>
     <div class="container">
         <!-- HEADER SECTION -->
@@ -22,12 +19,11 @@
             <nav class="nav">
                 <!-- LOGO COMPLETO -->
                 <figure class="logo-header">
-                    <a class="lnk-logo" href="#"><img class="logo-mascotas" src="img\\logo_completo_amarillo.png"
-                            alt="logo"></i></a>
+                    <a class="lnk-logo" href="./index.html"><img class="logo-mascotas" src="img\\logo_completo_amarillo.png"alt="logo"></i></a>
                     <!-- <i class="fa-solid fa-paw fa-2xl logo-mascotas"> -->
                 </figure>
                 <!-- HAMBURGER LINES -->
-                <div class="hamburger">
+                <div id="navMenu" class="hamburger">
                     <span class="lines"></span>
                     <span class="lines"></span>
                     <span class="lines"></span>
@@ -35,12 +31,12 @@
                 <!-- LINKS DEL MENU -->
                 <ul id="nav-links" class="nav-bar">
                     <!-- <li><a href="#">Home</a></li> -->
-                    <li><a class="links" href=".\\index.html">¿Quienes Somos?</a></li>
+                    <li><a class="links" href="./quienes_somos.html">¿Quienes Somos?</a></li>
                     <li><a class="links" href="#">Buscador de mascotas</a></li>
-                    <li><a class="links" href="#">¿Como adoptar?</a></li>
+                    <li><a class="links" href="./como_adoptar">¿Como adoptar?</a></li>
                     <!-- <li><a class="links" href="#">Historias Felices</a></li> -->
                     <li><a class="links" href="#">Donaciones</a></li>
-                    <li><a class="links" href="#">Contactanos</a></li>
+                    <li><a class="links" href="./contactanos.html">Contactanos</a></li>
                 </ul>
                 <!-- BOTENES DEL HEADER -->
                 <div class="header-buttons">
@@ -55,27 +51,29 @@
                 <h1 class="main-txt">
                     ¿Quienes somos?
                 </h1>
-                <br><br>
-                <p class="sec-txt">PetFriends es una fundación sin fines de lucro que se dedica a dar adopciones a mascotas abandonadas en
-                    Buenos Aires. Nuestra misión es brindar un hogar y una familia a los animales que sufren el abandono y
-                    el maltrato, y promover la tenencia responsable y el respeto por la vida animal. PetFriends cuenta con
-                    un equipo de voluntarios que rescata, cuida y esteriliza a las mascotas, y las ofrece en adopción a
-                    personas responsables y comprometidas. Si quieres adoptar una mascota o colaborar con la fundación,
-                    puedes visitar su página web o sus redes sociales.</p>
-                
+                <div>
+                    <p class="sec-txt">PetFriends es una fundación sin fines de lucro que se dedica a dar adopciones a mascotas abandonadas en
+                        Buenos Aires. Nuestra misión es brindar un hogar y una familia a los animales que sufren el abandono y
+                        el maltrato, y promover la tenencia responsable y el respeto por la vida animal.
+                    </p>
+                    <p class="sec-txt">Contamos con un equipo de voluntarios que rescata, cuida y esteriliza a las mascotas, y las ofrece en adopción a
+                        personas responsables y comprometidas. Si quieres adoptar una mascota o colaborar con la fundación,
+                        puedes visitar su página web o sus redes sociales.
+                    </p>
+                </div>
             </article>
         </main>
         <aside class="sec-content img-ppal">
             <figure>
-                <img class="img-dog" src="img/Animal9.png" alt="mascota perro blanco">
+                <img class="img-dog" src="img/mascota03.png" alt="mascota perro blanco">
             </figure>
         </aside>
         <!-- FOOTER SECTION -->
         <footer class="grid-footer">
             <section class="pie-superior">
                 <div class="logo">
-                    <a class="logo-pie" href="#">
-                        <img class="logo-pata" src="img\\logo-pata-amarillo.png" alt="">
+                    <a class="logo-pie" href="./index.html">
+                        <img class="logo-pata" src="img/logo-pata-amarillo.png" alt="">
                         <!-- <i class="fa-solid fa-paw fa-3x logo-pata"></i> -->
                         <p class="item-txt-logo">Petfriends</p>
                     </a>
@@ -98,7 +96,8 @@
             </section>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

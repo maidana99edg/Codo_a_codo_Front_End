@@ -145,7 +145,9 @@ nav ul {
 
 h1{
     font-family: 'Baloo Thambi';
+    font-size: 3em;
 }
+
 
 .info-ppal{
     display: flex;
@@ -162,7 +164,7 @@ h1{
 }
 
 .main-txt{
-    font-size: 2.5em;
+    font-size: 2.6em;
 }
 
 .sec-txt{
@@ -321,6 +323,7 @@ h1{
 /* Diseño responsive */
 /* Primer corte de pantalla a resolución max 1400px */
 @media only screen and (max-width: 1400px){
+    /* Grilla */
     .container {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto 1fr auto;
@@ -340,12 +343,12 @@ h1{
     }
 
     /* Contenido Central*/
-    .main-txt{
+    /* .main-txt{
         font-size: 2.2em;
-    }
+    } */
 
     .sec-txt{
-        font-size: 20px;
+        font-size: 23px;
     }
 
     .img-dog{
@@ -374,11 +377,11 @@ h1{
 
     /* Contenido Central*/
     .main-txt{
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     .sec-txt{
-        font-size: 18px;
+        font-size: 21px;
         width: 80%;
     }
 
@@ -514,12 +517,10 @@ h1{
     
     /* Contenido Central*/
     .main-txt{
-        font-size: 1.8em;
         text-align: center;
     }
 
     .sec-txt{
-        font-size: 14px;
         width: 100%;
         text-align: center;
     }
@@ -566,6 +567,7 @@ h1{
     .container {
         display: grid;
         grid-template-columns: 100%;
+        grid-template-rows: 0.45fr auto auto 0.2fr;
         grid-template-areas: 
             "nav"
             "main"
