@@ -6,7 +6,7 @@ const subjectField = document.querySelector('#inputSubject');
 const messageField = document.querySelector('#inputComments');
 
 const expresiones = {
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,20}$/, // Letras y espacios, pueden llevar acentos.
     texto: /^[a-zA-ZÀ-ÿ\s]{1,300}$/, // Letras y espacios, pueden llevar acentos.(texto largo)
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
@@ -34,11 +34,20 @@ const validateEmptyField = (message, e) => {
     }
   }
 
+const validateEmailFormat = e => {
+    const field = e.target;
+    const fieldValue = e.target.value;
+    const regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+    if (fieldValue.trim().length > 5 && !regex.test(fieldValue)) {
+      setErrors("Please enter a valid email", field);
+    } else {
+      setErrors("", field, false);
+    }
+  }
+
 NameField.addEventListener("blur", (e) => validateEmptyField("El campo solo admite: letras mayusculas, minusculas y espacios.", e));
 lastNameField.addEventListener("blur", (e) => validateEmptyField("El campo solo admite: letras mayusculas, minusculas y espacios.", e));
 emailField.addEventListener("blur", (e) => validateEmptyField("Ingrese una cuenta de correo electronico válida.", e));
 telephoneField.addEventListener("blur", (e) => validateEmptyField("El campo solo admite: numeros sin espacios en blanco.", e));
 subjectField.addEventListener("blur", (e) => validateEmptyField("Ingrese el motivo de su consulta.", e));
 messageField.addEventListener("blur", (e) => validateEmptyField("El campo no puede estar vacío.", e));
-
-

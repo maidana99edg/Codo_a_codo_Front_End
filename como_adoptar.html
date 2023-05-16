@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/como_adoptar.css">
+    <link rel="stylesheet" href="./css/como_adoptar.css">
     <link href='https://fonts.googleapis.com/css?family=Baloo Thambi' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="icon" href="img\\logo-pata-amarillo.png">
+    <link rel="icon" href="./img/logo-pata-amarillo.png">
     <title>Petfriends</title>
 </head>
 
@@ -22,12 +21,12 @@
             <nav class="nav">
                 <!-- LOGO COMPLETO -->
                 <figure class="logo-header">
-                    <a class="lnk-logo" href="#"><img class="logo-mascotas" src="img\\logo_completo_amarillo.png"
+                    <a class="lnk-logo" href="./index.html"><img class="logo-mascotas" src="img\\logo_completo_amarillo.png"
                             alt="logo"></i></a>
                     <!-- <i class="fa-solid fa-paw fa-2xl logo-mascotas"> -->
                 </figure>
                 <!-- HAMBURGER LINES -->
-                <div class="hamburger">
+                <div id="navMenu" class="hamburger">
                     <span class="lines"></span>
                     <span class="lines"></span>
                     <span class="lines"></span>
@@ -35,12 +34,12 @@
                 <!-- LINKS DEL MENU -->
                 <ul id="nav-links" class="nav-bar">
                     <!-- <li><a href="#">Home</a></li> -->
-                    <li><a class="links" href=".\\index.html">¿Quienes Somos?</a></li>
+                    <li><a class="links" href="./quienes_somos.html">¿Quienes Somos?</a></li>
                     <li><a class="links" href="#">Buscador de mascotas</a></li>
-                    <li><a class="links" href="#">¿Como adoptar?</a></li>
+                    <li><a class="links" href="./como_adoptar.html">¿Como adoptar?</a></li>
                     <!-- <li><a class="links" href="#">Historias Felices</a></li> -->
                     <li><a class="links" href="#">Donaciones</a></li>
-                    <li><a class="links" href="#">Contactanos</a></li>
+                    <li><a class="links" href="./contactanos.html">Contactanos</a></li>
                 </ul>
                 <!-- BOTENES DEL HEADER -->
                 <div class="header-buttons">
@@ -52,22 +51,71 @@
         <!-- MAIN SECTION -->
         <main class="main">
             <div class="titulo">
-                <h1>¿Cómo Adoptar?</h1>
+                <h1 class="titulo-ppal">¿Cómo Adoptar?</h1>
             </div>
             <div class="contenido_uno">
-                <p>Adoptar una mascota es una gran decisión que puede cambiar tu vida y la de tu nueva mascota
-                    para siempre.
-                    En PetFriends, estamos comprometidos a ayudarte a encontrar la mascota adecuada para ti y
-                    estilo de
-                    vida. Aquí te presentamos los pasos que debes seguir para adoptar una mascota en nuestra
-                    organización.</p>
-                <img src="img/Animal14.png" alt="Descripción de la imagen">
+                <article>
+                    <p>Adoptar una mascota es una gran decisión que puede cambiar tu vida y la de tu nueva mascota
+                        para siempre.
+                        En PetFriends, estamos comprometidos a ayudarte a encontrar la mascota adecuada para ti y
+                        estilo de
+                        vida. Aquí te presentamos los pasos que debes seguir para adoptar una mascota en nuestra
+                        organización.
+                    </p>
+                    <img class="img-mascota_1" src="img/mascota02.png" alt="gato color blanco">
+                </article>
             </div>
             <div class="contenido_dos">
-
+                <div class="titulo_dos">
+                    <h2 class="titulo_dos">Pasos</h2>
+                </div>
+                <div class="pasos">
+                    <ul class="lista">
+                        <li>
+                            <h3>1.</h3>
+                            <span>Encontrá una mascota que te guste</span>
+                        </li>
+                        <li>
+                            <h3>2.</h3>
+                            <span>Completa la solicitud de adopción</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pasos">
+                    <ul class="lista">
+                        <li>
+                            <h3>3.</h3>
+                            <span>Programa la entrevista</span>
+                        </li>
+                        <li>
+                            <h3>4.</h3>
+                            <span>Realiza una visita a la mascota</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pasos">
+                    <ul class="lista">
+                        <li>
+                            <h3>5.</h3>
+                            <span>Realiza la esperada adopción</span>
+                        </li>
+                        <li>
+                            <h3>6.</h3>
+                            <span>Disfruta de tus nuevas mascotas</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="contenido_tres">
-
+                <article>
+                    <img class="img-mascota_2" class="imgen" src="img/mascota04.png" alt="gato color gris">
+                    <p>
+                        ¡Felicitaciones! Ahora eres dueño de una mascota y estamos seguros de que te traerá mucha
+                        alegría y
+                        compañía. Si tienes alguna pregunta o necesitas asistencia después de la adopción, no dudes en
+                        ponerte en contacto con nosotros. ¡Gracias por adoptar a una mascota de PetFriends!
+                    </p>
+                </article>
             </div>
 
         </main>
@@ -76,8 +124,8 @@
         <footer class="grid-footer">
             <section class="pie-superior">
                 <div class="logo">
-                    <a class="logo-pie" href="#">
-                        <img class="logo-pata" src="img\\logo-pata-amarillo.png" alt="">
+                    <a class="logo-pie" href="./index.html">
+                        <img class="logo-pata" src="./img/logo-pata-amarillo.png" alt="">
                         <!-- <i class="fa-solid fa-paw fa-3x logo-pata"></i> -->
                         <p class="item-txt-logo">Petfriends</p>
                     </a>
@@ -100,7 +148,8 @@
             </section>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

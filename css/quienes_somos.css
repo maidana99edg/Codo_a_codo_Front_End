@@ -27,7 +27,7 @@ body{
     min-height: 100vh;
     grid-template-areas: 
         "nav nav nav nav"
-        "main main content1 content1"
+        "content1 content1 main main"
         "footer footer footer footer"
 }
 
@@ -156,7 +156,7 @@ h1{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-right: 0;
+    margin-left: 0;
     width: 80%;
 }
 
@@ -169,21 +169,22 @@ article > div > p {
 }
 
 .sec-txt{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
+    line-height: 40px;
 }
 
 .img-ppal{
     display: flex;
-    justify-content:left;
+    justify-content:right;
     align-items:end;
     line-height: 1%;
+    overflow-x:visible;
 }
 
 .img-dog{
-    width: 80vh;
-    height: auto;
-    padding-left: 20px;
+    max-width: 70vh;
+    max-height: 55vh;
 }
 
 /*--------------------*/
@@ -284,7 +285,7 @@ article > div > p {
         grid-template-rows: auto 1fr auto;
         grid-template-areas: 
             "nav nav nav"
-            "main main content1"
+            "content1 main main"
             "footer footer footer"
     }
     
@@ -303,12 +304,12 @@ article > div > p {
     } */
 
     .sec-txt{
-        font-size: 23px;
+        font-size: 22px;
     }
 
     .img-dog{
-        width: 75vh;
-        height: auto;
+        max-width: 60vh;
+        max-height: 50vh;
     }
 
     /* Footer */
@@ -337,12 +338,12 @@ article > div > p {
         width: 90%;
     }
     .sec-txt{
-        font-size: 21px;
+        font-size: 19px;
     }
 
     .img-dog{
-        width: 70vh;
-        height: auto;
+        max-width: 55vh;
+        max-height: 45vh;
     }
 
     /* Footer */
@@ -451,9 +452,8 @@ article > div > p {
     }
 
     .img-dog{
-        max-width: 65vh;
-        height: auto;
-        padding: 0;
+        max-width: 50vh;
+        max-height: 45vh;
     }
 }
 
@@ -605,7 +605,7 @@ article > div > p {
     }
 
     .img-dog{
-        width: 40vh;
+        width: 30vh;
         height: auto;
         padding: 0;
     }

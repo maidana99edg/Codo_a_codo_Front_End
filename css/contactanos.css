@@ -171,6 +171,7 @@ iframe{
     justify-content: center;
     gap: 20px;
     padding: 50px 50px 50px 0;
+    box-sizing: border-box;
 }
 
 .form-label{
@@ -214,17 +215,28 @@ iframe{
     box-shadow: 3px 0px 30px #fff;
 }
 
+
+/* Validaciones */
+.invalid {
+    border: solid 2px #ff5001;
+    box-shadow: 3px 0px 20px #ff5001;
+}
+
+/* .invalid {
+    color: #ff5001;
+}*/
+
+/* .invalid .invalid:focus {
+    border: solid 2px #ff5001;
+    box-shadow: 3px 0px 20px #ff5001;
+} */
+
 .error-message {
     display: block;
     padding: 5px 10px;
     padding: 10px 0 0 10px;
     font-size: 12px;
     color: #0174ae;
-}
-
-.invalid {
-    border: solid 2px #ff5001;
-    box-shadow: 3px 0px 30px #ff5001;
 }
 
 /*--------------------*/
