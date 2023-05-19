@@ -35,7 +35,7 @@
                     <li><a class="links" href="#">Buscador de mascotas</a></li>
                     <li><a class="links" href="./como_adoptar.html">¿Como adoptar?</a></li>
                     <!-- <li><a class="links" href="#">Historias Felices</a></li> -->
-                    <li><a class="links" href="#">Donaciones</a></li>
+                    <li><a class="links" href="./donaciones.html">Donaciones</a></li>
                     <li><a class="links" href="./contactanos.html">Contactanos</a></li>
                 </ul>
                 <!-- BOTENOS DEL HEADER -->
@@ -58,27 +58,50 @@
         </section>
         <section class="contact-form">
             <h3>Consultas</h3>
-            <form action="" id="formulario" class="formulario">
-                <label class="form-label" for="inputName">Nombre</label>
-                <input class="form-input" type="text" id="inputName" name="inputName" placeholder="Ingrese su Nombre" taxindex="1">
-                <span></span>
-                <label class="form-label" for="inputLastName" >Apellido</label>
-                <input class="form-input" type="text" id="inputLastName" name="inputLastName" placeholder="Ingrese su Apellido" taxindex="2">
-                <span></span>
-                <label class="form-label" for="inputEmail">Email</label>
-                <input class="form-input" type="email" id="inputEmail" name="inputEmail" placeholder="Ej: correo@correo.com" taxindex="3">
-                <span></span>
-                <label class="form-label" for="inputTelephone">Teléfono</label>
-                <input class="form-input" type="tel" id="inputTelephone" name="inputTelephone" placeholder="Ingrese numero de contacto" taxindex="4">
-                <span></span>
-                <label class="form-label" for="inputSubject" >Asunto</label>
-                <input class="form-input" type="text" id="inputSubject" name="inputSubject" placeholder="Motivo" taxindex="5">
-                <span></span>
-                <label class="form-label" for="inputComments">Mensaje</label>
-                <textarea class="form-textarea" name="inputComments" rows="6" cols="40" placeholder="Mensaje  (Max. 300 caracteres)" id="inputComments" taxindex="6"></textarea>
-                <span></span>
+            <form
+                action="https://formspree.io/f/mrgvdvaz"
+                method="POST"
+                id="formulario"
+                class="formulario">
+                <div id="form-name">
+                    <label class="form-label" for="inputName">Nombre</label>
+                    <input class="form-input required" type="text" id="inputName" name="name" placeholder="Ingrese su Nombre" taxindex="1">
+                    <i class="icon fa-solid"></i>
+                    <span class="message"></span>
+                </div>
+                <div id="form-lastName">
+                    <label class="form-label" for="inputLastName" >Apellido</label>
+                    <input class="form-input required" type="text" id="inputLastName" name="lastName" placeholder="Ingrese su Apellido" taxindex="2">
+                    <i class="icon fa-solid"></i>
+                    <span class="message"></span>
+                </div>
+                <div id="form-email">
+                    <label class="form-label" for="inputEmail">Email</label>
+                    <input class="form-input required" type="email" id="inputEmail" name="email" placeholder="Ej: correo@correo.com" taxindex="3">
+                    <i class="icon fa-solid"></i>
+                    <span class="message"></span>
+                </div>
+                <div id="form-telephone">
+                    <label class="form-label" for="inputTelephone">Teléfono</label>
+                    <input class="form-input required" type="tel" id="inputTelephone" name="telephone" placeholder="Ingrese numero de contacto (Max: 10 caracteres)" taxindex="4">
+                    <i class="icon fa-solid"></i>
+                    <span class="message"></span>
+                </div>
+                <div id="form-subject">
+                    <label class="form-label" for="inputSubject" >Asunto</label>
+                    <input class="form-input required" type="text" id="inputSubject" name="subject" placeholder="Motivo" taxindex="5">
+                    <i class="icon fa-solid"></i>
+                    <span class="message"></span>
+                </div>
+                <div id="form-comment">
+                    <label class="form-label" for="inputComment">Mensaje</label>
+                    <textarea class="form-textarea required" id="inputComment" name="comment" rows="6" cols="40" placeholder="Mensaje  (Max. 300 caracteres)" taxindex="6"></textarea>
+                    <i id="icon" class="icon fa-solid"></i>
+                    <span class="message"></span>
+                </div>
                 <div class="form-button">
                     <button type="submit" class="btn">Enviar</button>
+                    <span class="message"></span>
                 </div>
             </form>
         </section>
@@ -95,11 +118,11 @@
                 <div class="redes">
                     <p class="item-txt-rrss">Síguenos en:</p>
                     <div class="rrss-icn">
-                        <a href="#" class="fa-brands fa-facebook"></a>
-                        <a href="#" class="fa-brands fa-instagram"></a>
-                        <a href="#" class="fa-brands fa-linkedin"></a>
-                        <a href="#" class="fa-brands fa-youtube"></a>
-                        <a href="#" class="fa-brands fa-github"></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="fa-brands fa-facebook"></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="fa-brands fa-instagram"></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="fa-brands fa-linkedin"></a>
+                        <a href="https://www.youtube.com/" target="_blank" class="fa-brands fa-youtube"></a>
+                        <a href="https://github.com/maidana99edg/Codo_a_codo_Front_End" target="_blank" class="fa-brands fa-github"></a>
                     </div>
                 </div>
             </section>
@@ -110,7 +133,7 @@
             </section>
         </footer>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="./js/navbar.js"></script>
     <script src="./js/form-validation.js"></script>
     <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
 </body>

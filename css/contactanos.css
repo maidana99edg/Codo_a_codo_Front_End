@@ -193,6 +193,9 @@ iframe{
     height: 30px;
     border-radius: 50px;
 }
+.icon{
+    padding: 5px;
+}
 
 .form-input:focus, .form-textarea:focus{
     border: 2px solid #00aaff;
@@ -206,8 +209,16 @@ iframe{
     resize: vertical;
 }
 
+#icon{
+    position: absolute;
+}
+
 .form-button{
-    padding-top: 10px;
+    padding-top: 35px;
+}
+
+.form-button > span{
+    margin: 10px;
 }
 
 .btn:focus{
@@ -217,19 +228,14 @@ iframe{
 
 
 /* Validaciones */
-.invalid {
+.invalid .form-label {
+    color: #ff5001;
+}
+
+.invalid .form-input {
     border: solid 2px #ff5001;
     box-shadow: 3px 0px 20px #ff5001;
 }
-
-/* .invalid {
-    color: #ff5001;
-}*/
-
-/* .invalid .invalid:focus {
-    border: solid 2px #ff5001;
-    box-shadow: 3px 0px 20px #ff5001;
-} */
 
 .error-message {
     display: block;
@@ -237,6 +243,26 @@ iframe{
     padding: 10px 0 0 10px;
     font-size: 12px;
     color: #0174ae;
+}
+
+.submit-success{
+    color: #1ed12d;
+    font-weight: bold;
+}
+
+.submit-fail{
+    color: #0174ae;
+    font-weight: bold;
+}
+
+.icon-success {
+    color: #1ed12d;
+    text-shadow: 3px 3px 3px #1ed12d;
+}
+
+.icon-fail{
+    color: #bb2929;
+    text-shadow: 3px 3px 3px #bb2929;
 }
 
 /*--------------------*/
@@ -468,7 +494,6 @@ iframe{
         opacity: 0.9;
         padding: 35px 0;
         border-radius: 0 0 10px 10px;
-        transition: 0.4s;
     }
 
     li {
