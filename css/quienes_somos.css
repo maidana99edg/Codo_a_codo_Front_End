@@ -131,8 +131,11 @@ nav ul {
 }
 
 .btn:hover{
+    transition: 0.6s;
     background-color: #fff;
     color: #00aaff;
+    border: 2px solid #00aaff;
+    box-shadow: 5px 5px 20px lightgray;
 }
 
 .hide {
@@ -144,6 +147,7 @@ nav ul {
 
 h1{
     font-family: 'Baloo Thambi';
+    color: #ff5001;
 }
 
 .info-ppal{
@@ -569,6 +573,7 @@ article > div > p {
     .container {
         display: grid;
         grid-template-columns: 100%;
+        grid-template-rows: 0.3fr auto auto 0.3fr;
         grid-template-areas: 
             "nav"
             "main"
@@ -608,6 +613,10 @@ article > div > p {
         width: 30vh;
         height: auto;
         padding: 0;
+    }
+
+    .hide {
+        top: 55px;
     }
 
     /* footer*/
