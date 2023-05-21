@@ -70,6 +70,10 @@ nav ul {
     gap: 10px;
 }
 
+#home-menu{
+    display: none;
+}
+
 .nav-bar li a {
     /* background-color: #ff5001; */
     text-decoration: none;
@@ -497,6 +501,10 @@ iframe{
         opacity: 0.9;
         padding: 35px 0;
         border-radius: 0 0 10px 10px;
+    }
+
+    #home-menu{
+        display: block;
     }
 
     li {
