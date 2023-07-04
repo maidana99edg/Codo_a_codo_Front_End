@@ -158,6 +158,70 @@ h1{
     color: #ff5100;
 }
 
+h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+
+}
+
+.contact-info{
+    display: block;
+    gap: 20px;
+    padding: 10px 10px 10px 120px;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-label{
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    font-size: .8em;
+}
+
+.form-input{
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    font-family: 'Raleway', sans-serif;
+    padding: 5px;
+    box-sizing: border-box;
+    color: grey;
+    width: 250px;
+    border-radius: 50px;
+}
+
+.icon{
+    padding: 5px;
+}
+
+.form-input:focus, .form-textarea:focus{
+    border: 2px solid #00aaff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgb(1, 116, 174, 0.2);
+}
+
+#icon{
+    position: absolute;
+}
+
+.form-button{
+    padding-top: 35px;
+}
+
+.form-button > span{
+    margin: 10px;
+}
+
+.btn:focus{
+    outline: none;
+    box-shadow: 3px 0px 30px #fff;
+}
+
 .pet-list{
     border: solid 4px #00aaff;
     border-radius: 20px;

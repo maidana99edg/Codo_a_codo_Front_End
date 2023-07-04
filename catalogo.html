@@ -48,6 +48,36 @@
             <section class="title">
                 <h1>Catalogo de mascotas</h1>
             </section>
+            <!-- SEARCH FORM -->
+            <section id="contact-info" class="contact-info">
+                <h3>Encontrá una mascota cerca de ti:</h3>
+                <form action="#" method="GET" id="buscador-form" class="formulario">
+                    <div>
+                        <label class="form-label" for="inputName">Tipo de Mascota</label>
+                        <select class="form-input required" name="tipo-mascota" placeholder="Ingrese su mascota">
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label" for="inputName">Sexo</label>
+                        <select class="form-input required" name="tipo-mascota" placeholder="Ingrese su sexo">
+                            <option value="perro">Macho</option>
+                            <option value="gato">Hembra</option>
+                        </select>
+                    </div>
+                    <div id="form-name">
+                        <label class="form-label" for="inputName">Raza</label>
+                        <input class="form-input required" type="text" id="inputName" name="name" placeholder="Ingrese su raza" taxindex="1">
+                        <i class="icon fa-solid"></i>
+                        <span class="message"></span>
+                    </div>
+                    <div class="form-button">
+                        <button type="submit" class="btn">Buscar</button>
+                        <span class="message"></span>
+                    </div>
+                </form>
+            </section>
             <!-- CARDS -->
             <section>
                 <div id="catalog" class="pet-list"></div>
@@ -81,7 +111,7 @@
         </footer>
     </div>
     <script src="./js/navbar.js"></script>
-    <script src="./js/catalog.js"></script>
+    <script src="./js/catalog-list.js"></script>
     <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
 </body>
 </html>
