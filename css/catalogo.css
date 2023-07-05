@@ -165,8 +165,13 @@ h3{
 
 }
 
+.input-find{
+    display: flex;
+}
+
 .contact-info{
-    display: block;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 10px 10px 10px 120px;
 }
@@ -209,9 +214,9 @@ h3{
     position: absolute;
 }
 
-.form-button{
+/* .form-button{
     padding-top: 35px;
-}
+} */
 
 .form-button > span{
     margin: 10px;
@@ -257,6 +262,10 @@ h3{
     border-radius: 50%;
     margin-bottom: 10px;
     padding: 2px;
+}
+
+.card h4 {
+    margin-bottom: 5px;
 }
 
 .cards:hover img {

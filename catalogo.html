@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="icon" href="/img/logo-pata-amarillo.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Petfriends</title>
 </head>
 <body>
@@ -51,30 +52,30 @@
             <!-- SEARCH FORM -->
             <section id="contact-info" class="contact-info">
                 <h3>Encontrá una mascota cerca de ti:</h3>
+                <div id="select" class="input-find">
+                    <label class="form-label" for="inputSelect">Seleccione una opción de busqueda:</label>
+                    <select id="inputSelect" class="form-input" name="select"></select>
+                </div>
                 <form action="#" method="GET" id="buscador-form" class="formulario">
-                    <div>
-                        <label class="form-label" for="inputName">Tipo de Mascota</label>
-                        <select class="form-input required" name="tipo-mascota" placeholder="Ingrese su mascota">
-                            <option value="perro">Perro</option>
-                            <option value="gato">Gato</option>
+                    <div class="input-find" id="form-type">
+                        <label class="form-label" for="inputType">Tipo:</label>
+                        <select class="form-input" id="inputType" name="tipo">
                         </select>
                     </div>
-                    <div>
-                        <label class="form-label" for="inputName">Sexo</label>
-                        <select class="form-input required" name="tipo-mascota" placeholder="Ingrese su sexo">
-                            <option value="perro">Macho</option>
-                            <option value="gato">Hembra</option>
+                    <div class="input-find" id="form-sex">
+                        <label class="form-label" for="inputSex">Sexo:</label>
+                        <select class="form-input" id="inputSex" name="sex">
                         </select>
                     </div>
-                    <div id="form-name">
-                        <label class="form-label" for="inputName">Raza</label>
-                        <input class="form-input required" type="text" id="inputName" name="name" placeholder="Ingrese su raza" taxindex="1">
-                        <i class="icon fa-solid"></i>
-                        <span class="message"></span>
+                    <div class="input-find" id="form-breed">
+                        <label class="form-label" for="inputBreed">Raza:</label>
+                        <select class="form-input" name="breed" id="inputBreed"></select>
                     </div>
-                    <div class="form-button">
+                    <div id="form-btn" class="form-button">
                         <button type="submit" class="btn">Buscar</button>
-                        <span class="message"></span>
+                    </div>
+                    <div id="form-resetbtn" class="form-button">
+                        <button id="resetBtn" class="btn">Limpiar</button>
                     </div>
                 </form>
             </section>
@@ -111,7 +112,7 @@
         </footer>
     </div>
     <script src="./js/navbar.js"></script>
-    <script src="./js/catalog-list.js"></script>
+    <script src="./js/show-catalog.js"></script>
     <script src="https://kit.fontawesome.com/2398c4ed3e.js" crossorigin="anonymous"></script>
 </body>
 </html>
