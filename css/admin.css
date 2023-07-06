@@ -1,0 +1,743 @@
+/*---------------------------*/
+/* Estilos Visuales generales*/
+/*---------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../img/Pattern.svg");
+    background-repeat: repeat;
+    background-size:auto;
+    font-family: 'Raleway', sans-serif;
+    background-color: #ffad02;
+    color: #fff;
+    /* background-image: linear-gradient(to bottom, #FF5001, #FFAD02); */
+}
+
+/*----------------------------------------------------------------*/
+/* Definición de grilla de objetos dentro del contenedor principal*/
+/*----------------------------------------------------------------*/
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    grid-template-areas: 
+        "nav nav nav nav"
+        "main main main main"
+        "footer footer footer footer"
+}
+
+.container > .grid-head {
+    grid-area: nav;
+    background-color: #ff5001;
+}
+
+.container > .grid-footer {
+    grid-area: footer;
+    background-color: #ff5001;
+}
+
+.container > .main {
+    grid-area: main;
+}
+
+/*--------------------*/
+/* Estilos del Header*/
+/*--------------------*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.logo-mascotas {
+    width: 180px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#home-menu{
+    display: none;
+}
+
+.nav-bar{
+    display: none;
+}
+
+.nav-bar li a {
+    /* background-color: #ff5001; */
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 8px;
+    display: block;
+    position: relative;
+    transition: .5s;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav-bar li a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 100%;
+    left: 0;
+    background-color: #ffad02;
+    transition: transform 0.5s ease-out;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.nav-bar li a:hover{
+    /*background-color: #ff8037;*/
+    color: #ffad02;
+}
+
+.nav-bar li a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-bar > li {
+    float: left;
+}
+
+.header-buttons {
+    display: None;
+    padding-right: 30px;
+    gap: 10px
+}
+
+.btn {
+    border: 2px solid #0174ae;
+    background-color: #00aaff;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: .8em;
+    padding: 5px;
+    border-radius: 50px;
+    width: 90px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #00aaff;
+    color: #00aaff;
+    border: 2px solid #00aaff;
+    box-shadow: 5px 5px 20px lightgray;
+}
+
+.hide {
+    top: 69px;
+}
+
+/*--------------------------------*/
+/* Estilos del Contenido de página*/
+/*--------------------------------*/
+
+.title{
+    display: flex;
+    justify-content:center;
+    align-items: end;
+}
+
+h1{
+    font-family: 'Baloo Thambi';
+    font-size: 3em;
+    color: #ff5100;
+}
+
+#table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pets-table {
+    width: 60%;
+    border: 3px solid #ff5100;
+}
+
+.column {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-body  th {
+    border-bottom: 1px solid white;
+    padding: 15px;
+}
+
+.table-body td {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.center-column {
+    text-align: center;
+}
+
+.act-col{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.t-btn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0174ae;
+}
+
+.t-btn-inactive {
+    cursor: none;
+    color: grey;
+}
+
+.message-container {
+    position: absolute;
+    top: 160px;
+    left: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.message-container i {
+    display: none;
+}
+
+.msg-icon{
+    padding-right: 10px;
+}
+
+.icon-active{
+    display: inline;
+}
+
+.success{
+    background-color: #fff;
+    color:#00aaff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.error{
+    background-color: #fff;
+    color:#ff5001;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.success{
+    background-color: #fff;
+    color:#00aaff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#btn-add{
+    padding: 15px;
+    position: relative;
+    left: 50%;
+    transform: translateX(230px);
+}
+
+.add-button{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+span{
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+}
+
+th {
+    border-bottom: 3px solid white; /* Borde inferior blanco */
+    padding: 10px;
+}
+
+h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3em;
+
+}
+
+.input-find{
+    display: flex;
+}
+
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 10px 10px 120px;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-label{
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    font-size: .8em;
+}
+
+.form-input{
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    font-family: 'Raleway', sans-serif;
+    padding: 3px;
+    box-sizing: border-box;
+    color: grey;
+    width: 150px;
+    border-radius: 50px;
+}
+
+.icon{
+    padding: 5px;
+}
+
+.form-input:focus, .form-textarea:focus{
+    border: 2px solid #00aaff;
+    outline: none;
+    box-shadow: 3px 0px 30px rgb(1, 116, 174, 0.2);
+}
+
+#icon{
+    position: absolute;
+}
+
+/* .form-button{
+    padding-top: 35px;
+} */
+
+.form-button > span{
+    margin: 10px;
+}
+
+.btn:focus{
+    outline: none;
+    box-shadow: 3px 0px 30px #fff;
+}
+
+.pet-list{
+    border: solid 4px #00aaff;
+    border-radius: 20px;
+    margin: 10px;
+    text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 1px rgba(255, 128, 55, 0.486) solid;
+    margin: 10px;
+    transition: 0.6s;
+    background-color: rgb(255, 128, 55, 0.486);
+    width: 250px;
+    height: 240px;
+}
+
+.cards:hover {
+    transition: 0.6s;
+    box-shadow: 5px 5px 20px lightgray;
+}
+
+.cards img {
+    transition: 0.2s;
+    width: 120px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.card h4 {
+    margin-bottom: 5px;
+}
+
+.cards:hover img {
+    transition: 0.2s;
+    outline: 4px solid #00aaff;
+}
+
+.cards h4 {
+    margin-bottom: 10px;
+}
+
+.cards p {
+    font-size: smaller;
+}
+
+/*--------------------*/
+/* Estilos del Footer*/
+/*--------------------*/
+
+.pie-superior{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+.item-txt {
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.item-txt-logo {
+    color: #ffad02;
+    font-weight: bold;
+    font-size: 2.2em;
+    font-family: 'Baloo Thambi';
+}
+
+.item-txt-rrss {
+    color: #ffad02;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-pie{
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo-pata {
+    /*color: #ffac02;*/
+    width: 50px;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rrss-icn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.rrss-icn a {
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 21px;
+    background-color: white;
+    color: #ff5001;
+    border-radius: 50%;
+    transition: all .4s ease-in-out;
+}
+
+.rrss-icn a:hover {
+    transform: scale(1.2);
+    color: #0174ae;
+}
+
+.copyright{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8037;
+    padding: 10px 60px;
+    font-size: 0.8em;
+}
+
+/* Diseño responsive */
+/* Primer corte de pantalla a resolución max 1400px */
+@media only screen and (max-width: 1400px){
+    /* Grilla */
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "nav nav nav"
+            "main main main"
+            "footer footer footer"
+    }
+    
+    /* Header */
+    nav li a {
+        font-size: 13px;
+    }
+    
+    .btn {
+        font-size: .8em;
+    }
+
+    /* Contenido Central*/
+    h1{
+        font-size: 2.8em;
+    }
+
+    /* Footer */
+    .item-txt-logo {
+        font-size: 2.1em;
+    }
+}
+
+/* Segundo corte de pantalla a resolución max 1200px */
+@media only screen and (max-width: 1200px){
+    /* Header */
+    .logo-mascotas {
+        width: 140px;
+    }
+    
+    .nav-bar li a {
+        font-size: 12px;
+        padding: 3px 5px;
+    }
+
+    /* Contenido Central*/
+    h1{
+        font-size: 2.7em;
+    }
+
+    /* Footer */
+    .item-txt-logo {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    /* Header */
+    nav .hamburger{
+        order:1;
+    }
+
+    nav .logo-header {
+        order:2;
+    }
+
+    nav .header-buttons{
+        order:3;
+    }
+    /* HAMBURGER */
+    #navMenu > span{
+        display: block;
+        width: 28px;
+        height: 2px;
+        border-radius: 9999px;
+        background-color: #fff;
+    }
+    
+    #navMenu > span:not(:last-child){
+        margin-bottom: 7px;
+    }
+
+    #navMenu, #navMenu > span{
+        transition: all .4s ease-in-out;
+    }
+
+    #navMenu.active > span:nth-child(2){
+        width: 0;
+    }
+    
+    #navMenu.active > span:nth-child(1)
+    #navMenu.active > span:nth-child(3){
+        transition-delay: .4s;
+    }
+    
+    #navMenu.active > span:nth-child(1){
+        transform: translateY(9px);
+    }
+    
+    #navMenu.active > span:nth-child(3){
+        transform: translateY(-9px) rotate(90deg);
+    }
+    
+    #navMenu.active{
+        transition-delay: 0.8s;
+        transform: rotate(45deg);
+    }
+
+    nav {
+        position: relative;
+        padding: 15px 20px;
+    }
+
+    #home-menu{
+        display: block;
+    }
+
+    ul {
+        width: 100%;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        position: absolute;
+        top: -300px;
+        right: 0;
+        background-color: #ff8037;
+        opacity: 0.9;
+        padding: 35px 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    li {
+        width: 90vw;
+    }
+
+    .nav-bar li a {
+        font-size: 16px;
+    }
+
+    .nav-bar li a::after{
+        background-color: #ff8037;
+    }
+
+    .nav-bar li a:hover{
+        color: #fff;
+        border: none;
+        letter-spacing: 1px;
+        background-color: #ff8037;
+    }
+
+    /* Contenido Central*/
+    h1{
+        font-size: 2.6em;
+    }
+}
+
+@media only screen and (max-width: 960px){
+    /* Grilla */
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr auto 0.2fr;
+        min-height: 100vh;
+        grid-template-areas: 
+            "nav"
+            "main"
+            "footer"
+    }
+    
+    /* Contenido Central*/
+
+}
+
+@media only screen and (max-width: 768px){
+
+    .img-dog{
+        width: 35vh;
+        height: auto;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    /* Grilla */
+    .container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 0.3fr auto 0.3fr;
+        grid-template-areas: 
+            "nav"
+            "main"
+            "footer"
+    }
+
+    /* header */
+    .btn {
+        font-size: .7em;
+        padding: 4px;
+        width: 75px;
+    }
+
+    /* Contenido Central*/
+
+    .hide {
+        top: 55px;
+    }
+
+    /* footer*/
+    .logo-mascotas {
+        display: none;
+    }
+
+    .pie-superior{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        padding: 5px 0;
+    }
+
+    .logo-pata{
+        width: 8vw;
+    }
+
+    .item-txt-logo {
+        font-size: 1.8em;
+    }
+
+    .item-txt-rrss {
+        display: none;
+    }
+
+    .rrss-icn a {
+        text-decoration: none;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .copyright{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        padding: 5px 0;
+    }
+
+    .item-txt {
+        font-size: 0.7em;
+    }
+}

@@ -185,9 +185,10 @@ $(document).ready(function() {
         var petCard = '<div class="cards">' +
                         '<img src="' + pet.image + '" alt="' + pet.name + '">' +
                         '<h4>' + pet.name + '</h4>' +
-                        '<p><strong>Especie: </strong>' + pet.type + '</p>' +
+                        '<p><strong>Tipo: </strong>' + pet.type + '</p>' +
                         '<p><strong>Raza: </strong>' + pet.breed + '</p>' +
                         '<p><strong>Sexo: </strong>' + pet.sex + '</p>' +
+                        '<p><strong>Descripción: </strong>' + pet.description + '</p>' +
                       '</div>';
 
         catalogDiv.append(petCard);
