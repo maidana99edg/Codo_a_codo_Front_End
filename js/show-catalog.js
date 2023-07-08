@@ -35,7 +35,7 @@ $(document).ready(function() {
     var formBreed = $('#form-breed');
     var inputSelect = $('#inputSelect');
     var formButton = $('#form-btn')
-    var formresetButton = $('#resetBtn')
+    var formResetButton = $('#resetBtn')
   
     // Establecer el evento de cambio para el selector inputSelect
     inputSelect.on('change', toggleInputs);
@@ -45,7 +45,7 @@ $(document).ready(function() {
     formSex.hide();
     formBreed.hide();
     formButton.hide();
-    formresetButton.hide();
+    formResetButton.hide();
 
     // Función para mostrar u ocultar los elementos según la opción seleccionada
     function toggleInputs() {
@@ -56,25 +56,25 @@ $(document).ready(function() {
         formSex.hide();
         formBreed.hide();
         formButton.hide();
-        formresetButton.hide();
+        formResetButton.hide();
   
       // Mostrar el elemento correspondiente según la opción seleccionada
       if (selectedOption === 'Tipo') {
         formType.show();
         formButton.show();
-        formresetButton.show()
+        formResetButton.show()
         formSex.hide();
         formBreed.hide();
       } else if (selectedOption === 'Sexo') {
         formSex.show();
         formButton.show();
-        formresetButton.show()
+        formResetButton.show()
         formType.hide();
         formBreed.hide();
       } else if (selectedOption === 'Raza') {
         formBreed.show();
         formButton.show();
-        formresetButton.show()
+        formResetButton.show()
         formSex.hide();
         formType.hide();
       }

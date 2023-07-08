@@ -14,6 +14,7 @@ body{
     font-family: 'Raleway', sans-serif;
     background-color: #ffad02;
     color: #fff;
+    overflow-x: hidden;
     /* background-image: linear-gradient(to bottom, #FF5001, #FFAD02); */
 }
 
@@ -41,8 +42,12 @@ body{
     background-color: #ff5001;
 }
 
-.container > .main {
+.container > .main-content {
     grid-area: main;
+}
+
+.container > .sec-content {
+    grid-area: content1;
 }
 
 /*--------------------*/
@@ -59,6 +64,10 @@ nav {
     width: 180px;
 }
 
+.nav-bar{
+    display: none;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -67,10 +76,6 @@ nav ul {
 }
 
 #home-menu{
-    display: none;
-}
-
-.nav-bar{
     display: none;
 }
 
@@ -115,7 +120,7 @@ nav ul {
 }
 
 .header-buttons {
-    display: None;
+    display: none;
     padding-right: 30px;
     gap: 10px
 }
@@ -135,8 +140,8 @@ nav ul {
 }
 
 .btn:hover{
+    transition: 0.6s;
     background-color: #fff;
-    color: #00aaff;
     color: #00aaff;
     border: 2px solid #00aaff;
     box-shadow: 5px 5px 20px lightgray;
@@ -205,9 +210,12 @@ h1{
     border: none;
     cursor: pointer;
     color: #0174ae;
+    font-size: 15px;
 }
 
 .t-btn-inactive {
+    background-color: transparent;
+    border: none;
     cursor: none;
     color: grey;
 }
@@ -222,18 +230,6 @@ h1{
     padding: 5px;
 }
 
-.message-container i {
-    display: none;
-}
-
-.msg-icon{
-    padding-right: 10px;
-}
-
-.icon-active{
-    display: inline;
-}
-
 .success{
     background-color: #fff;
     color:#00aaff;
@@ -244,13 +240,6 @@ h1{
 .error{
     background-color: #fff;
     color:#ff5001;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.success{
-    background-color: #fff;
-    color:#00aaff;
     font-weight: bold;
     font-size: 14px;
 }
@@ -284,120 +273,32 @@ h3{
 
 }
 
-.input-find{
-    display: flex;
-}
-
-.contact-info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px 10px 10px 120px;
-}
-
-.formulario{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.form-label{
-    display: block;
-    font-weight: 700;
-    padding: 10px;
-    font-size: .8em;
-}
-
 .form-input{
-    box-sizing: border-box;
     border: 2px solid transparent;
     font-family: 'Raleway', sans-serif;
-    padding: 3px;
+    padding-left: 7px;
     box-sizing: border-box;
     color: grey;
-    width: 150px;
+    width: 130px;
+    height: 30px;
     border-radius: 50px;
 }
 
-.icon{
-    padding: 5px;
-}
-
-.form-input:focus, .form-textarea:focus{
+.form-input:focus{
     border: 2px solid #00aaff;
     outline: none;
     box-shadow: 3px 0px 30px rgb(1, 116, 174, 0.2);
 }
 
-#icon{
-    position: absolute;
+#add-image{
+    width: 190px;
 }
 
-/* .form-button{
-    padding-top: 35px;
-} */
-
-.form-button > span{
-    margin: 10px;
-}
-
-.btn:focus{
-    outline: none;
-    box-shadow: 3px 0px 30px #fff;
-}
-
-.pet-list{
-    border: solid 4px #00aaff;
-    border-radius: 20px;
-    margin: 10px;
-    text-transform: capitalize;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.cards {
-    display: inline-block;
-    padding: 20px 30px;
-    border-radius: 20px;
-    border: 1px rgba(255, 128, 55, 0.486) solid;
-    margin: 10px;
-    transition: 0.6s;
-    background-color: rgb(255, 128, 55, 0.486);
-    width: 250px;
-    height: 240px;
-}
-
-.cards:hover {
-    transition: 0.6s;
-    box-shadow: 5px 5px 20px lightgray;
-}
-
-.cards img {
-    transition: 0.2s;
-    width: 120px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    padding: 2px;
-}
-
-.card h4 {
-    margin-bottom: 5px;
-}
-
-.cards:hover img {
-    transition: 0.2s;
-    outline: 4px solid #00aaff;
-}
-
-.cards h4 {
-    margin-bottom: 10px;
-}
-
-.cards p {
-    font-size: smaller;
+#add_id{
+    width: 60px;
+    text-align: center;
+    padding-left: 0;
+    background-color: rgb(248, 248, 174);
 }
 
 /*--------------------*/
@@ -498,7 +399,7 @@ h3{
         grid-template-rows: auto 1fr auto;
         grid-template-areas: 
             "nav nav nav"
-            "main main main"
+            "main main content1"
             "footer footer footer"
     }
     
@@ -512,8 +413,18 @@ h3{
     }
 
     /* Contenido Central*/
-    h1{
-        font-size: 2.8em;
+    /* .main-txt{
+        font-size: 2.2em;
+    } */
+
+    .sec-txt{
+        font-size: 23px;
+    }
+
+    .img-dog{
+        width: 50vh;
+        height: auto;
+        padding-right: 15px;
     }
 
     /* Footer */
@@ -535,8 +446,18 @@ h3{
     }
 
     /* Contenido Central*/
-    h1{
-        font-size: 2.7em;
+    .main-txt{
+        font-size: 2.5em;
+    }
+
+    .sec-txt{
+        font-size: 21px;
+        width: 80%;
+    }
+
+    .img-dog{
+        width: 49vh;
+        height: auto;
     }
 
     /* Footer */
@@ -602,10 +523,6 @@ h3{
         padding: 15px 20px;
     }
 
-    #home-menu{
-        display: block;
-    }
-
     ul {
         width: 100%;
         flex-direction: column;
@@ -618,6 +535,10 @@ h3{
         opacity: 0.9;
         padding: 35px 0;
         border-radius: 0 0 10px 10px;
+    }
+    
+    #home-menu{
+        display: block;
     }
 
     li {
@@ -640,8 +561,18 @@ h3{
     }
 
     /* Contenido Central*/
-    h1{
-        font-size: 2.6em;
+    .main-txt{
+        font-size: 1.8em;
+    }
+
+    .sec-txt{
+        font-size: 16px;
+        width: 80%;
+    }
+
+    .img-dog{
+        width: 45vh;
+        height: auto;
     }
 }
 
@@ -649,16 +580,51 @@ h3{
     /* Grilla */
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr auto 0.2fr;
+        grid-template-rows: 0.2fr auto auto 0.2fr;
         min-height: 100vh;
         grid-template-areas: 
             "nav"
             "main"
+            "content1"
             "footer"
     }
     
     /* Contenido Central*/
+    .main-txt{
+        text-align: center;
+    }
 
+    .sec-txt{
+        width: 100%;
+        text-align: center;
+    }
+
+    .art-ppal{
+        justify-content:center;
+    }
+
+    .main-buttons{
+        justify-content:center;
+    }
+
+    .buscar-btn{
+        width: 160px;
+    }
+    
+    .donar-btn{
+        width: 160px;
+    }
+
+    .img-ppal{
+        display: flex;
+        justify-content:center;
+    }
+
+    .img-dog{
+        width: 40vh;
+        height: auto;
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 768px){
@@ -675,10 +641,11 @@ h3{
     .container {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 0.3fr auto 0.3fr;
+        grid-template-rows: 0.3fr auto auto 0.3fr;
         grid-template-areas: 
             "nav"
             "main"
+            "content1"
             "footer"
     }
 
@@ -690,6 +657,35 @@ h3{
     }
 
     /* Contenido Central*/
+    .main-txt{
+        font-size: 1.6em;
+    }
+
+    .sec-txt{
+        font-size: 14px;
+    }
+
+    .buscar-btn{
+        font-size: .8em;
+        padding: 4px;
+        width: 120px;
+    }
+    
+    .donar-btn{
+        font-size: .8em;
+        padding: 4px;
+        width: 120px;
+    }
+
+    figure{
+        display: flex;
+        justify-content: center;
+    }
+    .img-dog{
+        max-width: 90%;
+        height: 90%;
+        padding: 0;
+    }
 
     .hide {
         top: 55px;

@@ -1,3 +1,5 @@
+var selectedRowValues = {};
+
 function getPetsList() {
     const URL = "https://bercom01.pythonanywhere.com";
     var url = URL + '/pets';
@@ -20,11 +22,12 @@ function displayPetList(pets) {
     tableBody.empty();
   
     if (pets.length === 0) {
-      tableBody.append('<tr><td colspan="8">No se encontraron mascotas.</td></tr>');
+      tableBody.append('<tr><td colspan="9">No se encontraron mascotas.</td></tr>');
     } else {
       for (var i = 0; i < pets.length; i++) {
         var pet = pets[i];
         var row = $('<tr>');
+        row.append('<td class="column center-column radio-col"><input type="radio" name="pet-radio"></td>');
         row.append('<td class="column center-column id-col"><strong>' + pet.id + '</strong></td>');
         row.append('<td class="column">' + pet.name + '</td>');
         row.append('<td class="column">' + pet.type + '</td>');
@@ -32,7 +35,7 @@ function displayPetList(pets) {
         row.append('<td class="column">' + pet.sex + '</td>');
         row.append('<td class="column">' + pet.description + '</td>');
         row.append('<td class="column">' + pet.image + '</td>');
-        row.append('<td class="column center-column act-col"><button id="edit-btn" class="t-btn"><i class="fa-regular fa-pen-to-square"></i></button><button id="del-btn" class="t-btn"><i class="fa-solid fa-trash"></i></button></td>');
+        row.append('<td class="column center-column act-col"><button id="edit-btn" onclick="showEditPetRow()" class="t-btn-inactive" disabled><i class="fa-regular fa-pen-to-square"></i></button><button id="del-btn" onclick="deletePet()" class="t-btn-inactive" disabled><i class="fa-solid fa-trash"></i></button></td>');
   
         tableBody.append(row);
       }
@@ -59,31 +62,54 @@ function displayPetList(pets) {
 
   function showAddPetRow() {
     getLastPetCode()
-        .then(function(newCode) {
-            var addRow = $('<tr class="add-pet-row">');
-            addRow.append('<td class="column center-column id-col"><input type="text" class="form-input add-code" value="' + newCode + '" readonly></td>');
-            addRow.append('<td class="column"><input class="form-input" type="text" id="add-name"></td>');
-            addRow.append('<td class="column"><input class="form-input" type="text" id="add-type"></td>');
-            addRow.append('<td class="column"><input class="form-input" type="text" id="add-breed"></td>');
-            addRow.append('<td class="column"><input class="form-input" type="text" id="add-sex"></td>');
-            addRow.append('<td class="column"><input class="form-input" type="text" id="add-description"></td>');
-            addRow.append('<td class="column"><input class="form-input" type="text" id="add-image"></td>');
-            addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="savePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" onclick="cancelAddPet()"><i class="fa-solid fa-times"></i></button></td>');
-        
-            $('.table-body').prepend(addRow);
-            disableTable();
-        })
-        .catch(function(error) {
-            console.log('Error al obtener el último código de mascota:', error);
-        });
-}
+      .then(function(newCode) {
+        var addRow = $('<tr class="add-pet-row">');
+        addRow.append('<td></td>');
+        addRow.append('<td class="column center-column id-col"><input type="text" class="form-input add-code" id="add_id" value="' + newCode + '" readonly></td>');
+        addRow.append('<td class="column"><input class="form-input" type="text" id="add-name"></td>');
+        addRow.append('<td class="column"><input class="form-input" type="text" id="add-type"></td>');
+        addRow.append('<td class="column"><input class="form-input" type="text" id="add-breed"></td>');
+        addRow.append('<td class="column"><select class="form-input" id="add-sex-select"></select></td>');
+        addRow.append('<td class="column"><input class="form-input" type="text" id="add-description"></td>');
+        addRow.append('<td class="column"><input class="form-input" type="text" id="add-image"></td>');
+        addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="savePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" onclick="cancelAddPet()"><i class="fa-solid fa-times"></i></button></td>');
+    
+        $('.table-body').prepend(addRow);
+        toggleRadioButtons(false);
+        disableEditDeleteButtons()
+  
+        const URL = "https://bercom01.pythonanywhere.com";
+  
+        // Realizar la solicitud HTTP para obtener los tipos de mascota
+        fetch(URL + '/pet-sex')
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            var selectSex = $('#add-sex-select');
+  
+            // Construir las opciones del select de sexos
+            var placeholderOption = $('<option>').val('').text('Sexo').prop('disabled', true).prop('selected', true).prop('hidden', true);
+            selectSex.append(placeholderOption);
+  
+            for (var i = 0; i < data.length; i++) {
+              var option = $('<option>').val(data[i]).text(data[i]);
+              selectSex.append(option);
+            }
+          });
+      })
+      .catch(function(error) {
+          console.log('Error al obtener el último código de mascota:', error);
+      });
+  }
+  
 
   function savePet() {
     var id = parseInt($('.add-code').val()); // Convertir el código a entero
     var name = $('#add-name').val();
     var type = $('#add-type').val();
     var breed = $('#add-breed').val();
-    var sex = $('#add-sex').val();
+    var sex = $('#add-sex-select').val();
     var description = $('#add-description').val();
     var image = $('#add-image').val();
   
@@ -97,8 +123,6 @@ function displayPetList(pets) {
       description: description,
       image: image
     };
-
-  
     // Realizar la petición POST para guardar la nueva mascota
   $.ajax({
     url: 'https://bercom01.pythonanywhere.com/pets',
@@ -108,7 +132,6 @@ function displayPetList(pets) {
     success: function(response) {
       // Éxito: la mascota se guardó correctamente
       console.log('Mascota guardada:', response);
-      enableTable();
       clearFields();
       cancelAddPet();
       showMessage('La mascota se guardó exitosamente', 'success');
@@ -117,32 +140,192 @@ function displayPetList(pets) {
     error: function(error) {
       // Error al guardar la mascota
       console.log('Error al guardar la mascota:', error);
-      enableTable();
       showMessage('Error al guardar la mascota', 'error');
     }
   });
   }
+
+function showEditPetRow() {
+  var addRow = $('<tr class="add-pet-row">');
+  addRow.append('<td></td>');
+  addRow.append('<td class="column center-column id-col"><input type="text" class="form-input add-code" id="add_id" readonly></td>');
+  addRow.append('<td class="column"><input class="form-input" type="text" id="add-name"></td>');
+  addRow.append('<td class="column"><input class="form-input" type="text" id="add-type"></td>');
+  addRow.append('<td class="column"><input class="form-input" type="text" id="add-breed"></td>');
+  addRow.append('<td class="column"><select class="form-input" id="add-sex-select"></select></td>');
+  addRow.append('<td class="column"><input class="form-input" type="text" id="add-description"></td>');
+  addRow.append('<td class="column"><input class="form-input" type="text" id="add-image"></td>');
+  addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="updatePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" onclick="cancelAddPet()"><i class="fa-solid fa-times"></i></button></td>');
+
+  $('.table-body').prepend(addRow);
+  toggleRadioButtons(false);
+  disableEditDeleteButtons()
+
+  const URL = "https://bercom01.pythonanywhere.com";
+
+  // Realizar la solicitud HTTP para obtener los sexos de mascota
+  fetch(URL + '/pet-sex')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var selectSex = $('#add-sex-select');
+
+      // Construir las opciones del select de sexos
+      var placeholderOption = $('<option>').val('').text('Seleccione el sexo').prop('disabled', true).prop('selected', true).prop('hidden', true);
+      selectSex.append(placeholderOption);
+
+      for (var i = 0; i < data.length; i++) {
+        var option = $('<option>').val(data[i]).text(data[i]);
+        selectSex.append(option);
+      }
+
+      // Asignar los valores a los campos de edición
+      var id = selectedRowValues.id;
+      var name = selectedRowValues.name;
+      var type = selectedRowValues.type;
+      var breed = selectedRowValues.breed;
+      var sex = selectedRowValues.sex;
+      var description = selectedRowValues.description;
+      var image = selectedRowValues.image;
+
+      addRow.find('#add_id').val(id);
+      addRow.find('#add-name').val(name);
+      addRow.find('#add-type').val(type);
+      addRow.find('#add-breed').val(breed);
+      addRow.find('#add-sex-select').val(sex);
+      addRow.find('#add-description').val(description);
+      addRow.find('#add-image').val(image);
+    })
+    .catch(function(error) {
+      console.log('Error al obtener los sexos de mascota:', error);
+    });
+}
+  function selectPetRow() {
+    var selectedRadio = $(this);
+    var row = selectedRadio.closest('tr');
+
+    // Obtener los valores de los campos de la fila seleccionada
+    var id = row.find('.id-col strong').text();
+    var name = row.find('.column:eq(2)').text();
+    var type = row.find('.column:eq(3)').text();
+    var breed = row.find('.column:eq(4)').text();
+    var sex = row.find('.column:eq(5)').text();
+    var description = row.find('.column:eq(6)').text();
+    var image = row.find('.column:eq(7)').text();
+
+    // Almacenar los valores en la variable global
+    selectedRowValues = {
+      id: id,
+      name: name,
+      type: type,
+      breed: breed,
+      sex: sex,
+      description: description,
+      image: image
+    };
   
-  function cancelAddPet() {
-    clearFields();
-    $('.table-body tr:first-child').remove();
-    enableTable();
-  }
-  
-  function disableTable() {
-    $('.table-body #edit-btn').prop('disabled', true);
-    $('.table-body #del-btn').prop('disabled', true);
-    $('.table-body #edit-btn').addClass('t-btn-inactive');
-    $('.table-body #del-btn').addClass('t-btn-inactive');
-  }
-  
-  function enableTable() {
-    $('.table-body #edit-btn').prop('disabled', false);
-    $('.table-body #del-btn').prop('disabled', false);
-    $('.table-body #edit-btn').removeClass('t-btn-inactive');
-    $('.table-body #del-btn').removeClass('t-btn-inactive');
+    // Habilitar los iconos de la columna de acciones en la fila seleccionada
+    var editButton = row.find('#edit-btn');
+    var deleteButton = row.find('#del-btn');
+    editButton.prop('disabled', false);
+    deleteButton.prop('disabled', false);
+    editButton.removeClass('t-btn-inactive');
+    deleteButton.removeClass('t-btn-inactive');
+    editButton.addClass('t-btn');
+    deleteButton.addClass('t-btn');
+
+    // Restablecer opciones cuando cambie el boton seleccionado
+    var otherRows = $('.table-body tr').not(row);
+    otherRows.find('#edit-btn').prop('disabled', true);
+    otherRows.find('#del-btn').prop('disabled', true);
+    otherRows.find('#edit-btn').addClass('t-btn-inactive');
+    otherRows.find('#del-btn').addClass('t-btn-inactive');
+    otherRows.find('#edit-btn').removeClass('t-btn');
+    otherRows.find('#del-btn').removeClass('t-btn');
   }
 
+  function updatePet() {
+    var id = selectedRowValues.id;
+
+    var updName = $('#add-name').val();
+    var updType = $('#add-type').val();
+    var updBreed = $('#add-breed').val();
+    var updSex = $('#add-sex-select').val();
+    var updDescription = $('#add-description').val();
+    var updImage = $('#add-image').val();
+    
+    // Crear un objeto con los datos de la nueva mascota
+    var updatePet = {
+      name: updName,
+      type: updType,
+      breed: updBreed,
+      sex: updSex,
+      description: updDescription,
+      image: updImage
+    };
+
+    // Realizar la petición PUT para actualizar la mascota seleccionada
+  $.ajax({
+    url: 'https://bercom01.pythonanywhere.com/pets/' + id,
+    type: 'PUT',
+    data: JSON.stringify(updatePet),
+    contentType: 'application/json',
+    success: function(response) {
+      // Éxito: la mascota se guardó correctamente
+      console.log('Mascota actualizada:', response);
+      clearFields();
+      cancelAddPet();
+      showMessage('La mascota se actualizó exitosamente', 'success');
+      getPetsList();
+    },
+    error: function(error) {
+      // Error al guardar la mascota
+      console.log('Error al actualizar la mascota:', error);
+      showMessage('Error al actualizar la mascota', 'error');
+    }
+  });
+  }
+
+  function deletePet() {
+    var id = selectedRowValues.id;
+  
+    // Mostrar notificación para confirmar la eliminación
+    var confirmation = confirm('¿Estás seguro de que deseas eliminar esta mascota?');
+    if (confirmation) {
+      // Realizar la petición DELETE para eliminar la mascota
+      $.ajax({
+        url: 'https://bercom01.pythonanywhere.com/pets/' + id,
+        type: 'DELETE',
+        success: function(response) {
+          // Éxito: la mascota se eliminó correctamente
+          console.log('Mascota eliminada:', response);
+          showMessage('La mascota se eliminó exitosamente', 'success');
+          getPetsList(); // Actualizar la tabla de mascotas
+        },
+        error: function(error) {
+          // Error al eliminar la mascota
+          console.log('Error al eliminar la mascota:', error);
+          showMessage('Error al eliminar la mascota', 'error');
+        }
+      });
+    }
+  }
+ //------ FUNCIONES COMPLEMENTARIAS ----------//
+  function cancelAddPet() {
+    clearFields();
+    getPetsList();
+    $('.table-body tr:first-child').remove();
+    toggleRadioButtons(true);
+    var selectedRow = $('.table-body tr.add-pet-row').prev();
+    var editButton = selectedRow.find('.edit-action-btn');
+    var deleteButton = selectedRow.find('.delete-action-btn');
+    editButton.prop('disabled', false);
+    deleteButton.prop('disabled', false);
+    editButton.removeClass('t-btn-inactive');
+    deleteButton.removeClass('t-btn-inactive');
+  }
+  
   function clearFields() {
     $('#add-name').val('');
     $('#add-type').val('');
@@ -160,11 +343,24 @@ function displayPetList(pets) {
     setTimeout(function() {
       messageContainer.hide();
       messageContainer.removeClass(type);
-    }, 3000); // Ocultar el mensaje después de 3 segundos
+    }, 3000);
   }
 
+  function toggleRadioButtons(enabled) {
+    $('input[name="pet-radio"]').prop('disabled', !enabled);
+  }
+
+  function disableEditDeleteButtons() {
+    $('.table-body #edit-btn').prop('disabled', true);
+    $('.table-body #del-btn').prop('disabled', true);
+    $('.table-body #edit-btn').addClass('t-btn-inactive');
+    $('.table-body #del-btn').addClass('t-btn-inactive');
+  }
 
   $(document).ready(function() {
     // Obtener el listado de mascotas al cargar la página
     getPetsList();
+
+    // Agregar el controlador de eventos a los botones de radio
+    $('.table-body').on('click', 'input[name="pet-radio"]', selectPetRow);
   });
