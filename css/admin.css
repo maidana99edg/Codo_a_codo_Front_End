@@ -399,7 +399,7 @@ h3{
         grid-template-rows: auto 1fr auto;
         grid-template-areas: 
             "nav nav nav"
-            "main main content1"
+            "main main main"
             "footer footer footer"
     }
     
@@ -585,7 +585,6 @@ h3{
         grid-template-areas: 
             "nav"
             "main"
-            "content1"
             "footer"
     }
     
@@ -645,7 +644,6 @@ h3{
         grid-template-areas: 
             "nav"
             "main"
-            "content1"
             "footer"
     }
 
