@@ -43,7 +43,7 @@ function displayPetList(pets) {
         row.append('<td class="column">' + pet.sex + '</td>');
         row.append('<td class="column">' + pet.description + '</td>');
         row.append('<td class="column">' + pet.image + '</td>');
-        row.append('<td class="column center-column act-col"><button id="edit-btn" onclick="showEditPetRow()" class="t-btn-inactive" disabled><i class="fa-regular fa-pen-to-square"></i></button><button id="del-btn" onclick="deletePet()" class="t-btn-inactive" disabled><i class="fa-solid fa-trash"></i></button></td>');
+        row.append('<td class="column center-column act-col"><button id="edit-btn" title="Editar" onclick="showEditPetRow()" class="t-btn-inactive" disabled><i class="fa-regular fa-pen-to-square"></i></button><button id="del-btn" onclick="deletePet()" class="t-btn-inactive" title="Eliminar" disabled><i class="fa-solid fa-trash"></i></button></td>');
   
         tableBody.append(row);
       }
@@ -127,7 +127,7 @@ function displayPetList(pets) {
         addRow.append('<td class="column"><select class="form-input" id="add-sex-select"></select></td>');
         addRow.append('<td class="column"><input class="form-input" type="text" id="add-description"></td>');
         addRow.append('<td class="column"><input class="form-input" type="text" id="add-image"></td>');
-        addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="savePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" onclick="cancelAddPet()"><i class="fa-solid fa-times"></i></button></td>');
+        addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="savePet() title="Guardar""><i class="fa-solid fa-save"></i></button><button class="t-btn" title="Cancelar" onclick="cancelAddPet()"><i class="fa-solid fa-ban"></i></button></td>');
     
         $('.table-body').prepend(addRow);
         toggleRadioButtons(false);
@@ -214,7 +214,7 @@ function showEditPetRow() {
   addRow.append('<td class="column"><select class="form-input" id="add-sex-select"></select></td>');
   addRow.append('<td class="column"><input class="form-input" type="text" id="add-description"></td>');
   addRow.append('<td class="column"><input class="form-input" type="text" id="add-image"></td>');
-  addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="updatePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" onclick="cancelAddPet()"><i class="fa-solid fa-times"></i></button></td>');
+  addRow.append('<td class="column center-column act-col"><button class="t-btn" title="Guardar" onclick="updatePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" title="Cancelar" onclick="cancelAddPet()"><i class="fa-solid fa-ban"></i></button></td>');
 
   $('.table-body').prepend(addRow);
   toggleRadioButtons(false);
