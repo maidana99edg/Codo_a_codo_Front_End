@@ -1,4 +1,7 @@
 var selectedRowValues = {};
+var currentPage = 1; // Página actual
+var recordsPerPage = 10; // Registros por página
+var totalRecords = 0; // Total de registros en la tabla
 
 function getPetsList() {
     const URL = "https://bercom01.pythonanywhere.com";
@@ -20,14 +23,19 @@ function getPetsList() {
 function displayPetList(pets) {
     var tableBody = $('.table-body');
     tableBody.empty();
+
+    var startIndex = (currentPage - 1) * recordsPerPage;
+    var endIndex = startIndex + recordsPerPage;
+
+    var currentPets = pets.slice(startIndex, endIndex);
   
     if (pets.length === 0) {
       tableBody.append('<tr><td colspan="9">No se encontraron mascotas.</td></tr>');
     } else {
-      for (var i = 0; i < pets.length; i++) {
-        var pet = pets[i];
+      for (var i = 0; i < currentPets.length; i++) {
+        var pet = currentPets[i];
         var row = $('<tr>');
-        row.append('<td class="column center-column radio-col"><input type="radio" name="pet-radio"></td>');
+        row.append('<td class="column center-column radio-col"><input class="radio-btn" type="radio" name="pet-radio"></td>');
         row.append('<td class="column center-column id-col"><strong>' + pet.id + '</strong></td>');
         row.append('<td class="column">' + pet.name + '</td>');
         row.append('<td class="column">' + pet.type + '</td>');
@@ -39,7 +47,54 @@ function displayPetList(pets) {
   
         tableBody.append(row);
       }
+        // Actualizar el total de registros
+        totalRecords = pets.length;
+
+        // Mostrar los botones de paginación
+        renderPaginationButtons(pets);
     }
+  }
+
+  function renderPaginationButtons(pets) {
+    var paginationContainer = $('.pag-buttons');
+    paginationContainer.empty();
+  
+    var totalPages = Math.ceil(totalRecords / recordsPerPage);
+
+    // Botón Anterior
+    var prevButton = $('<button>').text('Previo ').addClass('pagination-button');
+    prevButton.append('<strong><i class="fa-solid fa-angles-left"></i></strong>');
+    prevButton.prop('disabled', currentPage === 1);
+    prevButton.on('click', function() {
+      if (currentPage > 1) {
+        currentPage--;
+        displayPetList(pets);
+      }
+    });
+    prevButton.css('cursor', 'pointer');
+    paginationContainer.append(prevButton);
+  
+    // Botón Siguiente
+    var nextButton = $('<button>').addClass('pagination-button');
+    nextButton.append('<strong><i class="fa-solid fa-angles-right"></i></strong>');
+    nextButton.append(' Siguiente')
+    nextButton.prop('disabled', currentPage === totalPages);
+    nextButton.on('click', function() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayPetList(pets);
+      }
+    });
+    nextButton.css('cursor', 'pointer');
+    paginationContainer.append(nextButton);
+  }
+  
+  // Función auxiliar para asignar el evento de clic a los botones de página
+  function goToPage(page) {
+    return function() {
+      currentPage = page;
+      displayPetList(pets);
+    };
   }
 
   function getLastPetCode() {
@@ -76,7 +131,9 @@ function displayPetList(pets) {
     
         $('.table-body').prepend(addRow);
         toggleRadioButtons(false);
-        disableEditDeleteButtons()
+        disableEditDeleteButtons();
+        disableAddButton();
+        disablePaginationButton();
   
         const URL = "https://bercom01.pythonanywhere.com";
   
@@ -134,6 +191,8 @@ function displayPetList(pets) {
       console.log('Mascota guardada:', response);
       clearFields();
       cancelAddPet();
+      enableAddButton();
+      enablePaginationButton();
       showMessage('La mascota se guardó exitosamente', 'success');
       getPetsList(); // Actualizar la tabla de mascotas
     },
@@ -159,7 +218,9 @@ function showEditPetRow() {
 
   $('.table-body').prepend(addRow);
   toggleRadioButtons(false);
-  disableEditDeleteButtons()
+  disableEditDeleteButtons();
+  disableAddButton();
+  disablePaginationButton();
 
   const URL = "https://bercom01.pythonanywhere.com";
 
@@ -276,6 +337,8 @@ function showEditPetRow() {
       console.log('Mascota actualizada:', response);
       clearFields();
       cancelAddPet();
+      enableAddButton();
+      disablePaginationButton();
       showMessage('La mascota se actualizó exitosamente', 'success');
       getPetsList();
     },
@@ -317,6 +380,8 @@ function showEditPetRow() {
     getPetsList();
     $('.table-body tr:first-child').remove();
     toggleRadioButtons(true);
+    enableAddButton();
+    disablePaginationButton();
     var selectedRow = $('.table-body tr.add-pet-row').prev();
     var editButton = selectedRow.find('.edit-action-btn');
     var deleteButton = selectedRow.find('.delete-action-btn');
@@ -355,6 +420,28 @@ function showEditPetRow() {
     $('.table-body #del-btn').prop('disabled', true);
     $('.table-body #edit-btn').addClass('t-btn-inactive');
     $('.table-body #del-btn').addClass('t-btn-inactive');
+  }
+
+  function disableAddButton() {
+    $('.add-button').prop('disabled', true);
+    $('.add-button').removeClass('t-btn');
+    $('.add-button').addClass('t-btn-inactive');
+  }
+
+  function enableAddButton() {
+    $('.add-button').prop('disabled', false);
+    $('.add-button').removeClass('t-btn-inactive');
+    $('.add-button').addClass('t-btn');
+  }
+
+  function enablePaginationButton(){
+    $('.pagination-button').prop('disabled', false);
+    $('.pagination-button').css('cursor', 'pointer');
+  }
+
+  function disablePaginationButton(){
+    $('.pagination-button').prop('disabled', true);
+    $('.pagination-button').css('cursor', 'none');
   }
 
   $(document).ready(function() {
