@@ -127,7 +127,7 @@ function displayPetList(pets) {
         addRow.append('<td class="column"><select class="form-input" id="add-sex-select"></select></td>');
         addRow.append('<td class="column"><input class="form-input" type="text" id="add-description"></td>');
         addRow.append('<td class="column"><input class="form-input" type="text" id="add-image"></td>');
-        addRow.append('<td class="column center-column act-col"><button class="t-btn" onclick="savePet() title="Guardar""><i class="fa-solid fa-save"></i></button><button class="t-btn" title="Cancelar" onclick="cancelAddPet()"><i class="fa-solid fa-ban"></i></button></td>');
+        addRow.append('<td class="column center-column act-col"><button class="t-btn" title="Guardar" onclick="savePet()"><i class="fa-solid fa-save"></i></button><button class="t-btn" title="Cancelar" onclick="cancelAddPet()"><i class="fa-solid fa-ban"></i></button></td>');
     
         $('.table-body').prepend(addRow);
         toggleRadioButtons(false);
